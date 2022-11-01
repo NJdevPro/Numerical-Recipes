@@ -117,6 +117,7 @@ Doub Bessjy::jn(const Int n, const Doub x) {
             bjm = j * tox * bj - bjp;
             bjp = bj;
             bj = bjm;
+            frexp(bj, &k);
             if (k > IEXP) {
                 bj = ldexp(bj, -IEXP);
                 bjp = ldexp(bjp, -IEXP);
@@ -230,7 +231,7 @@ Doub Bessik::in(const Int n, const Doub x) {
     const Doub ACC = 200.0;
     const Int IEXP = numeric_limits<Doub>::max_exponent / 2;
     Int j, k;
-    Doub bi, bim, bip, tox, ans;
+    Doub bi, bj, bim, bip, dum, sum, tox, ans;
     if (n == 0) return i0(x);
     if (n == 1) return i1(x);
     if (x * x <= 8.0 * numeric_limits<Doub>::min()) return 0.0;
@@ -242,6 +243,7 @@ Doub Bessik::in(const Int n, const Doub x) {
             bim = bip + j * tox * bi;
             bip = bi;
             bi = bim;
+            frexp(bi,&k);
             if (k > IEXP) {
                 ans = ldexp(ans, -IEXP);
                 bi = ldexp(bi, -IEXP);
