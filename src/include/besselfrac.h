@@ -70,8 +70,8 @@ const Doub Bessel::c2[8] = {1.843740587300905e0, -7.68528408447867e-2,
 
 void Bessel::besseljy(const Doub nu, const Doub x) {
     const Int MAXIT = 10000;
-    const Doub EPS = numeric_limits<Doub>::epsilon();
-    const Doub FPMIN = numeric_limits<Doub>::min() / EPS;
+    const Doub EPS = std::numeric_limits<Doub>::epsilon();
+    const Doub FPMIN = std::numeric_limits<Doub>::min() / EPS;
     const Doub XMIN = 2.0, PI = 3.141592653589793;
     Doub a, b, br, bi, c, cr, ci, d, del, del1, den, di, dlr, dli, dr, e, f, fact, fact2,
             fact3, ff, gam, gam1, gam2, gammi, gampl, h, p, pimu, pimu2, q, r, rjl,
@@ -218,8 +218,8 @@ void Bessel::besseljy(const Doub nu, const Doub x) {
 
 void Bessel::besselik(const Doub nu, const Doub x) {
     const Int MAXIT = 10000;
-    const Doub EPS = numeric_limits<Doub>::epsilon();
-    const Doub FPMIN = numeric_limits<Doub>::min() / EPS;
+    const Doub EPS = std::numeric_limits<Doub>::epsilon();
+    const Doub FPMIN = std::numeric_limits<Doub>::min() / EPS;
     const Doub XMIN = 2.0, PI = 3.141592653589793;
     Doub a, a1, b, c, d, del, del1, delh, dels, e, f, fact, fact2, ff, gam1, gam2,
             gammi, gampl, h, p, pimu, q, q1, q2, qnew, ril, ril1, rimu, rip1, ripl,

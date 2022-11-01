@@ -52,12 +52,12 @@ template<Int DIM>
 struct KDtree {
     static const Doub BIG;
     Int nboxes, npts;
-    vector<Point<DIM> > &ptss;
+    std::vector<Point<DIM> > &ptss;
     Boxnode<DIM> *boxes;
     VecInt ptindx, rptindx;
     Doub *coords;
 
-    KDtree(vector<Point<DIM> > &pts);
+    KDtree(std::vector<Point<DIM> > &pts);
 
     ~KDtree() { delete[] boxes; }
 
@@ -79,7 +79,7 @@ struct KDtree {
 template<Int DIM> const Doub KDtree<DIM>::BIG(1.0e99);
 
 template<Int DIM>
-KDtree<DIM>::KDtree(vector<Point<DIM> > &pts) :
+KDtree<DIM>::KDtree(std::vector<Point<DIM> > &pts) :
         ptss(pts), npts(pts.size()), ptindx(npts), rptindx(npts) {
     Int ntmp, m, k, kk, j, nowtask, jbox, np, tmom, tdim, ptlo, pthi;
     Int *hp;

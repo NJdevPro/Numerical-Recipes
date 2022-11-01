@@ -18,7 +18,7 @@ struct Amebsa {
 
     Amebsa(VecDoub_I &point, const Doub del, T &funkk, const Doub ftoll) :
             funk(funkk), ftol(ftoll), ran(1234),
-            yb(numeric_limits<Doub>::max()), ndim(point.size()), pb(ndim),
+            yb(std::numeric_limits<Doub>::max()), ndim(point.size()), pb(ndim),
             mpts(ndim + 1), y(mpts), p(mpts, ndim) {
         for (Int i = 0; i < mpts; i++) {
             for (Int j = 0; j < ndim; j++)
@@ -30,7 +30,7 @@ struct Amebsa {
 
     Amebsa(VecDoub_I &point, VecDoub_I &dels, T &funkk, const Doub ftoll) :
             funk(funkk), ftol(ftoll), ran(1234),
-            yb(numeric_limits<Doub>::max()), ndim(point.size()), pb(ndim),
+            yb(std::numeric_limits<Doub>::max()), ndim(point.size()), pb(ndim),
             mpts(ndim + 1), y(mpts), p(mpts, ndim) {
         for (Int i = 0; i < mpts; i++) {
             for (Int j = 0; j < ndim; j++)
@@ -41,7 +41,7 @@ struct Amebsa {
     }
 
     Amebsa(MatDoub_I &pp, T &funkk, const Doub ftoll) : funk(funkk),
-                                                        ftol(ftoll), ran(1234), yb(numeric_limits<Doub>::max()),
+                                                        ftol(ftoll), ran(1234), yb(std::numeric_limits<Doub>::max()),
                                                         ndim(pp.ncols()), pb(ndim), mpts(pp.nrows()), y(mpts),
                                                         p(pp) { inity(); }
 

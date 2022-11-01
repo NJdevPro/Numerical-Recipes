@@ -4,7 +4,7 @@
 template<class T>
 void dfpmin(VecDoub_IO &p, const Doub gtol, Int &iter, Doub &fret, T &funcd) {
     const Int ITMAX = 200;
-    const Doub EPS = numeric_limits<Doub>::epsilon();
+    const Doub EPS = std::numeric_limits<Doub>::epsilon();
     const Doub TOLX = 4 * EPS, STPMX = 100.0;
     Bool check;
     Doub den, fac, fad, fae, fp, stpmax, sum = 0.0, sumdg, sumxi, temp, test;

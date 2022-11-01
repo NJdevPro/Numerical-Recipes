@@ -99,7 +99,7 @@ Doub mcmcstep(Int m, State &s, Plog &plog, Proposal &propose) {
     plog(s);
     for (Int i = 0; i < m; i++) {
         propose(s, sprop, qratio);
-        alph = min(1., qratio * exp(plog(sprop) - s.plog));
+        alph = std::min(1., qratio * exp(plog(sprop) - s.plog));
         ran = propose.gau.doub();
         if (ran < alph) {
             s = sprop;

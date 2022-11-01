@@ -1,7 +1,7 @@
 #pragma once
 #include <nr3.h>
 
-void fourew(NRvector<fstream *> &file, Int &na, Int &nb, Int &nc, Int &nd) {
+void fourew(NRvector<std::fstream *> &file, Int &na, Int &nb, Int &nc, Int &nd) {
     Int i;
     for (i = 0; i < 4; i++) (*file[i]).seekp(0);
     for (i = 0; i < 4; i++) (*file[i]).seekg(0);
@@ -13,7 +13,7 @@ void fourew(NRvector<fstream *> &file, Int &na, Int &nb, Int &nc, Int &nd) {
     nd = 1;
 }
 
-void fourfs(NRvector<fstream *> &file, VecInt_I &nn, const Int isign) {
+void fourfs(NRvector<std::fstream *> &file, VecInt_I &nn, const Int isign) {
     const Int KBF = 128;
     static Int mate[4] = {1, 0, 3, 2};
     Int cc, cc0, j, j12, jk, k, kk, n = 1, mm, kc = 0, kd, ks, kr, na, nb, nc, nd, nr, ns, nv;

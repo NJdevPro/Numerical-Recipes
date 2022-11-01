@@ -3,7 +3,7 @@
 
 void laguer(VecComplex_I &a, Complex &x, Int &its) {
     const Int MR = 8, MT = 10, MAXIT = MT * MR;
-    const Doub EPS = numeric_limits<Doub>::epsilon();
+    const Doub EPS = std::numeric_limits<Doub>::epsilon();
     static const Doub frac[MR + 1] =
             {0.0, 0.5, 0.25, 0.75, 0.13, 0.38, 0.62, 0.88, 1.0};
     Complex dx, x1, b, d, f, g, h, sq, gp, gm, g2;
@@ -31,7 +31,7 @@ void laguer(VecComplex_I &a, Complex &x, Int &its) {
         Doub abp = abs(gp);
         Doub abm = abs(gm);
         if (abp < abm) gp = gm;
-        dx = MAX(abp, abm) > 0.0 ? Doub(m) / gp : polar(1 + abx, Doub(iter));
+        dx = MAX(abp, abm) > 0.0 ? Doub(m) / gp : std::polar(1 + abx, Doub(iter));
         x1 = x - dx;
         if (x == x1) return;
         if (iter % MT != 0) x = x1;

@@ -4,9 +4,9 @@
 Complex frenel(const Doub x) {
     static const Int MAXIT = 100;
     static const Doub PI = 3.141592653589793238, PIBY2 = (PI / 2.0), XMIN = 1.5,
-            EPS = numeric_limits<Doub>::epsilon(),
-            FPMIN = numeric_limits<Doub>::min(),
-            BIG = numeric_limits<Doub>::max() * EPS;
+            EPS = std::numeric_limits<Doub>::epsilon(),
+            FPMIN = std::numeric_limits<Doub>::min(),
+            BIG = std::numeric_limits<Doub>::max() * EPS;
     Bool odd;
     Int k, n;
     Doub a, ax, fact, pix2, sign, sum, sumc, sums, term, test;

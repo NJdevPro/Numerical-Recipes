@@ -56,7 +56,7 @@ struct Fitmed {
     }
 
     Doub rofunc(const Doub b) {
-        const Doub EPS = numeric_limits<Doub>::epsilon();
+        const Doub EPS = std::numeric_limits<Doub>::epsilon();
         Int j;
         Doub d, sum = 0.0;
         VecDoub arr(ndata);

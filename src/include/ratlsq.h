@@ -53,8 +53,8 @@ Ratfn ratlsq(Doub fn(const Doub), const Doub a, const Doub b, const Int mm,
             ratbest = rat;
             dev = devmax;
         }
-        cout << " ratlsq iteration= " << it;
-        cout << "  max error= " << setw(10) << devmax << endl;
+        std::cout << " ratlsq iteration= " << it;
+        std::cout << "  max error= " << std::setw(10) << devmax << std::endl;
     }
     return ratbest;
 }

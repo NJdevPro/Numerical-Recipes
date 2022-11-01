@@ -89,14 +89,14 @@ struct Bessjy {
 
 Doub Bessjy::jn(const Int n, const Doub x) {
     const Doub ACC = 160.0;
-    const Int IEXP = numeric_limits<Doub>::max_exponent / 2;
+    const Int IEXP = std::numeric_limits<Doub>::max_exponent / 2;
     Bool jsum;
     Int j, k, m;
     Doub ax, bj, bjm, bjp, sum, tox, ans;
     if (n == 0) return j0(x);
     if (n == 1) return j1(x);
     ax = abs(x);
-    if (ax * ax <= 8.0 * numeric_limits<Doub>::min()) return 0.0;
+    if (ax * ax <= 8.0 * std::numeric_limits<Doub>::min()) return 0.0;
     else if (ax > Doub(n)) {
         tox = 2.0 / ax;
         bjm = j0(ax);
@@ -229,12 +229,12 @@ Doub Bessik::kn(const Int n, const Doub x) {
 
 Doub Bessik::in(const Int n, const Doub x) {
     const Doub ACC = 200.0;
-    const Int IEXP = numeric_limits<Doub>::max_exponent / 2;
+    const Int IEXP = std::numeric_limits<Doub>::max_exponent / 2;
     Int j, k;
-    Doub bi, bj, bim, bip, dum, sum, tox, ans;
+    Doub bi, bj, bim, bip, tox, ans;
     if (n == 0) return i0(x);
     if (n == 1) return i1(x);
-    if (x * x <= 8.0 * numeric_limits<Doub>::min()) return 0.0;
+    if (x * x <= 8.0 * std::numeric_limits<Doub>::min()) return 0.0;
     else {
         tox = 2.0 / abs(x);
         bip = ans = 0.0;

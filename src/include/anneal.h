@@ -23,7 +23,7 @@ struct Anneal {
         i1 = iorder[ncity - 1];
         i2 = iorder[0];
         path += alen(x[i1], x[i2], y[i1], y[i2]);
-        cout << fixed << setprecision(6);
+        std::cout << std::fixed << std::setprecision(6);
         for (Int j = 0; j < 100; j++) {
             Int nsucc = 0;
             for (Int k = 0; k < nover; k++) {
@@ -54,9 +54,9 @@ struct Anneal {
                 }
                 if (nsucc >= nlimit) break;
             }
-            cout << endl << "T = " << setw(12) << t;
-            cout << "	 Path Length = " << setw(12) << path << endl;
-            cout << "Successful Moves: " << nsucc << endl;
+            std::cout << std::endl << "T = " << std::setw(12) << t;
+            std::cout << "	 Path Length = " << std::setw(12) << path << std::endl;
+            std::cout << "Successful Moves: " << nsucc << std::endl;
             t *= TFACTR;
             if (nsucc == 0) return;
         }

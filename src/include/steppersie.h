@@ -47,7 +47,7 @@ StepperSie<D>::StepperSie(VecDoub_IO &yy, VecDoub_IO &dydxx, Doub &xx,
           a(n, n), coeff(IMAXX, IMAXX),
           fsave((IMAXX - 1) * (IMAXX + 1) / 2 + 2, n), dens((IMAXX + 2) * n), factrl(IMAXX) {
     static const Doub costfunc = 1.0, costjac = 5.0, costlu = 1.0, costsolve = 1.0;
-    EPS = numeric_limits<Doub>::epsilon();
+    EPS = std::numeric_limits<Doub>::epsilon();
     jac_redo = MIN(1.0e-4, rtol);
     theta = 2.0 * jac_redo;
     nseq[0] = 2;
@@ -137,7 +137,7 @@ void StepperSie<D>::step(const Doub htry, D &derivs) {
                     hnew = abs(h) * STEPFAC5;
                     break;
                 }
-                errold = max(4.0 * err, 1.0);
+                errold = std::max(4.0 * err, 1.0);
                 Doub expo = 1.0 / (k + 1);
                 Doub facmin = pow(STEPFAC3, expo);
                 if (err == 0.0)

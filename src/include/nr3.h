@@ -1,5 +1,4 @@
 #pragma once
-#include <nr3.h>
 
 #ifndef _NR3_H_
 #define _NR3_H_
@@ -24,7 +23,6 @@
 #include <string.h>
 #include <ctype.h>
 
-using namespace std;
 
 // macro-like inline functions
 
@@ -472,14 +470,14 @@ typedef unsigned char Uchar;
 typedef double Doub; // default floating type
 typedef long double Ldoub;
 
-typedef complex<double> Complex; // default complex type
+typedef std::complex<double> Complex; // default complex type
 
 typedef bool Bool;
 
 // NaN: uncomment one of the following 3 methods of defining a global NaN
 // you can test by verifying that (NaN != NaN) is true
 
-static const Doub NaN = numeric_limits<Doub>::quiet_NaN();
+static const Doub NaN = std::numeric_limits<Doub>::quiet_NaN();
 
 //Uint proto_nan[2]={0xffffffff, 0x7fffffff};
 //double NaN = *( double* )proto_nan;

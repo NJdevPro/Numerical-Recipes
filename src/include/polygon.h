@@ -1,7 +1,7 @@
 #pragma once
 #include <nr3.h>
 
-Int polywind(const vector<Point<2> > &vt, const Point<2> &pt) {
+Int polywind(const std::vector<Point<2> > &vt, const Point<2> &pt) {
     Int i, np, wind = 0;
     Doub d0, d1, p0, p1, pt0, pt1;
     np = vt.size();
@@ -27,7 +27,7 @@ Int polywind(const vector<Point<2> > &vt, const Point<2> &pt) {
     return wind;
 }
 
-Int ispolysimple(const vector<Point<2> > &vt) {
+Int ispolysimple(const std::vector<Point<2> > &vt) {
     Int i, ii, j, jj, np, schg = 0, wind = 0;
     Doub p0, p1, d0, d1, pp0, pp1, dd0, dd1, t, tp, t1, t2, crs, crsp = 0.0;
     np = vt.size();

@@ -223,7 +223,7 @@ StepperDopr853<D>::StepperDopr853(VecDoub_IO &yy, VecDoub_IO &dydxx, Doub &xx,
         StepperBase(yy, dydxx, xx, atoll, rtoll, dens), yerr2(n), k2(n), k3(n), k4(n),
         k5(n), k6(n), k7(n), k8(n), k9(n), k10(n), rcont1(n), rcont2(n), rcont3(n),
         rcont4(n), rcont5(n), rcont6(n), rcont7(n), rcont8(n) {
-    EPS = numeric_limits<Doub>::epsilon();
+    EPS = std::numeric_limits<Doub>::epsilon();
 }
 
 template<class D>

@@ -4,9 +4,9 @@
 Complex cisi(const Doub x) {
     static const Int MAXIT = 100;
     static const Doub EULER = 0.577215664901533, PIBY2 = 1.570796326794897,
-            TMIN = 2.0, EPS = numeric_limits<Doub>::epsilon(),
-            FPMIN = numeric_limits<Doub>::min() * 4.0,
-            BIG = numeric_limits<Doub>::max() * EPS;
+            TMIN = 2.0, EPS = std::numeric_limits<Doub>::epsilon(),
+            FPMIN = std::numeric_limits<Doub>::min() * 4.0,
+            BIG = std::numeric_limits<Doub>::max() * EPS;
     Int i, k;
     Bool odd;
     Doub a, err, fact, sign, sum, sumc, sums, t, term;

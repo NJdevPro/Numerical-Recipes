@@ -47,17 +47,17 @@ struct Nullhash {
 struct Delaunay {
     Int npts, ntri, ntree, ntreemax, opt;
     Doub delx, dely;
-    vector<Point<2> > pts;
-    vector<Triel> thelist;
+    std::vector<Point<2> > pts;
+    std::vector<Triel> thelist;
     Hash<Ullong, Int, Nullhash> *linehash;
     Hash<Ullong, Int, Nullhash> *trihash;
     Int *perm;
 
-    Delaunay(vector<Point<2> > &pvec, Int options = 0);
+    Delaunay(std::vector<Point<2> > &pvec, Int options = 0);
 
     Ranhash hashfn;
 
-    Doub interpolate(const Point<2> &p, const vector<Doub> &fnvals,
+    Doub interpolate(const Point<2> &p, const std::vector<Doub> &fnvals,
                      Doub defaultval = 0.0);
 
     void insertapoint(Int r);
@@ -76,7 +76,7 @@ const Doub Delaunay::fuzz = 1.0e-6;
 const Doub Delaunay::bigscale = 1000.0;
 Uint Delaunay::jran = 14921620;
 
-Delaunay::Delaunay(vector<Point<2> > &pvec, Int options) :
+Delaunay::Delaunay(std::vector<Point<2> > &pvec, Int options) :
         npts(pvec.size()), ntri(0), ntree(0), ntreemax(10 * npts + 1000),
         opt(options), pts(npts + 3), thelist(ntreemax) {
     Int j;
@@ -219,7 +219,7 @@ Int Delaunay::storetriangle(Int a, Int b, Int c) {
 }
 
 Doub Delaunay::interpolate(const Point<2> &p,
-                           const vector<Doub> &fnvals, Doub defaultval) {
+                           const std::vector<Doub> &fnvals, Doub defaultval) {
     Int n, i, j, k;
     Doub wgts[3];
     Int ipts[3];
@@ -243,12 +243,12 @@ struct Convexhull : Delaunay {
     Int nhull;
     Int *hullpts;
 
-    Convexhull(vector<Point<2> > pvec);
+    Convexhull(std::vector<Point<2> > pvec);
 };
 
-Convexhull::Convexhull(vector<Point<2> > pvec) : Delaunay(pvec, 2), nhull(0) {
+Convexhull::Convexhull(std::vector<Point<2> > pvec) : Delaunay(pvec, 2), nhull(0) {
     Int i, j, k, pstart;
-    vector<Int> nextpt(npts);
+    std::vector<Int> nextpt(npts);
     for (j = 0; j < ntree; j++) {
         if (thelist[j].stat != -1) continue;
         for (i = 0, k = 1; i < 3; i++, k++) {
@@ -270,10 +270,10 @@ struct Minspantree : Delaunay {
     Int nspan;
     VecInt minsega, minsegb;
 
-    Minspantree(vector<Point<2> > pvec);
+    Minspantree(std::vector<Point<2> > pvec);
 };
 
-Minspantree::Minspantree(vector<Point<2> > pvec) :
+Minspantree::Minspantree(std::vector<Point<2> > pvec) :
         Delaunay(pvec, 0), nspan(npts - 1), minsega(nspan), minsegb(nspan) {
     Int i, j, k, jj, kk, m, tmp, nline, n = 0;
     Triel tt;

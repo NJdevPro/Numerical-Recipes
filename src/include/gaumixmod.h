@@ -17,7 +17,7 @@ struct Gaumixmod : preGaumixmod {
     Int nn, kk, mm;
     MatDoub data, means, resp;
     VecDoub frac, lndets;
-    vector<Mat_mm> sig;
+    std::vector<Mat_mm> sig;
     Doub loglike;
 
     Gaumixmod(MatDoub &ddata, MatDoub &mmeans) : preGaumixmod(ddata.ncols()),

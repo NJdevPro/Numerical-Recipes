@@ -4,8 +4,8 @@
 Doub rc(const Doub x, const Doub y) {
     static const Doub ERRTOL = 0.0012, THIRD = 1.0 / 3.0, C1 = 0.3, C2 = 1.0 / 7.0,
             C3 = 0.375, C4 = 9.0 / 22.0;
-    static const Doub TINY = 5.0 * numeric_limits<Doub>::min(),
-            BIG = 0.2 * numeric_limits<Doub>::max(), COMP1 = 2.236 / sqrt(TINY),
+    static const Doub TINY = 5.0 * std::numeric_limits<Doub>::min(),
+            BIG = 0.2 * std::numeric_limits<Doub>::max(), COMP1 = 2.236 / sqrt(TINY),
             COMP2 = SQR(TINY * BIG) / 25.0;
     Doub alamb, ave, s, w, xt, yt;
     if (x < 0.0 || y == 0.0 || (x + abs(y)) < TINY || (x + abs(y)) > BIG ||
@@ -32,8 +32,8 @@ Doub rc(const Doub x, const Doub y) {
 Doub rd(const Doub x, const Doub y, const Doub z) {
     static const Doub ERRTOL = 0.0015, C1 = 3.0 / 14.0, C2 = 1.0 / 6.0, C3 = 9.0 / 22.0,
             C4 = 3.0 / 26.0, C5 = 0.25 * C3, C6 = 1.5 * C4;
-    static const Doub TINY = 2.0 * pow(numeric_limits<Doub>::max(), -2. / 3.),
-            BIG = 0.1 * ERRTOL * pow(numeric_limits<Doub>::min(), -2. / 3.);
+    static const Doub TINY = 2.0 * pow(std::numeric_limits<Doub>::max(), -2. / 3.),
+            BIG = 0.1 * ERRTOL * pow(std::numeric_limits<Doub>::min(), -2. / 3.);
     Doub alamb, ave, delx, dely, delz, ea, eb, ec, ed, ee, fac, sqrtx, sqrty,
             sqrtz, sum, xt, yt, zt;
     if (MIN(x, y) < 0.0 || MIN(x + y, z) < TINY || MAX(MAX(x, y), z) > BIG) throw("invalid arguments in rd");
@@ -69,8 +69,8 @@ Doub rd(const Doub x, const Doub y, const Doub z) {
 Doub rf(const Doub x, const Doub y, const Doub z) {
     static const Doub ERRTOL = 0.0025, THIRD = 1.0 / 3.0, C1 = 1.0 / 24.0, C2 = 0.1,
             C3 = 3.0 / 44.0, C4 = 1.0 / 14.0;
-    static const Doub TINY = 5.0 * numeric_limits<Doub>::min(),
-            BIG = 0.2 * numeric_limits<Doub>::max();
+    static const Doub TINY = 5.0 * std::numeric_limits<Doub>::min(),
+            BIG = 0.2 * std::numeric_limits<Doub>::max();
     Doub alamb, ave, delx, dely, delz, e2, e3, sqrtx, sqrty, sqrtz, xt, yt, zt;
     if (MIN(MIN(x, y), z) < 0.0 || MIN(MIN(x + y, x + z), y + z) < TINY ||
         MAX(MAX(x, y), z) > BIG) throw("invalid arguments in rf");
@@ -98,8 +98,8 @@ Doub rf(const Doub x, const Doub y, const Doub z) {
 Doub rj(const Doub x, const Doub y, const Doub z, const Doub p) {
     static const Doub ERRTOL = 0.0015, C1 = 3.0 / 14.0, C2 = 1.0 / 3.0, C3 = 3.0 / 22.0,
             C4 = 3.0 / 26.0, C5 = 0.75 * C3, C6 = 1.5 * C4, C7 = 0.5 * C2, C8 = C3 + C3;
-    static const Doub TINY = pow(5.0 * numeric_limits<Doub>::min(), 1. / 3.),
-            BIG = 0.3 * pow(0.2 * numeric_limits<Doub>::max(), 1. / 3.);
+    static const Doub TINY = pow(5.0 * std::numeric_limits<Doub>::min(), 1. / 3.),
+            BIG = 0.3 * pow(0.2 * std::numeric_limits<Doub>::max(), 1. / 3.);
     Doub a, alamb, alpha, ans, ave, b, beta, delp, delx, dely, delz, ea, eb, ec, ed, ee,
             fac, pt, rcx, rho, sqrtx, sqrty, sqrtz, sum, tau, xt, yt, zt;
     if (MIN(MIN(x, y), z) < 0.0 || MIN(MIN(x + y, x + z), MIN(y + z, abs(p))) < TINY

@@ -45,7 +45,7 @@ struct Unsymmeig {
 };
 
 void Unsymmeig::balance() {
-    const Doub RADIX = numeric_limits<Doub>::radix;
+    const Doub RADIX = std::numeric_limits<Doub>::radix;
     Bool done = false;
     Doub sqrdx = RADIX * RADIX;
     while (!done) {
@@ -136,7 +136,7 @@ void Unsymmeig::hqr() {
     Int nn, m, l, k, j, its, i, mmin;
     Doub z, y, x, w, v, u, t, s, r, q, p, anorm = 0.0;
 
-    const Doub EPS = numeric_limits<Doub>::epsilon();
+    const Doub EPS = std::numeric_limits<Doub>::epsilon();
     for (i = 0; i < n; i++)
         for (j = MAX(i - 1, 0); j < n; j++)
             anorm += abs(a[i][j]);
@@ -258,7 +258,7 @@ void Unsymmeig::hqr2() {
     Int nn, m, l, k, j, its, i, mmin, na;
     Doub z, y, x, w, v, u, t, s, r, q, p, anorm = 0.0, ra, sa, vr, vi;
 
-    const Doub EPS = numeric_limits<Doub>::epsilon();
+    const Doub EPS = std::numeric_limits<Doub>::epsilon();
     for (i = 0; i < n; i++)
         for (j = MAX(i - 1, 0); j < n; j++)
             anorm += abs(a[i][j]);

@@ -1,7 +1,7 @@
 #pragma once
 #include <nr3.h>
 
-Bool decchk(string str, char &ch) {
+Bool decchk(std::string str, char &ch) {
     char c;
     Int j, k = 0, m = 0, n = str.length();
     static Int ip[10][8] = {{0, 1, 5, 8, 9, 4, 2, 7},

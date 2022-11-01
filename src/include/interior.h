@@ -37,7 +37,7 @@ Int intpt(const NRsparseMat &a, VecDoub_I &b, VecDoub_I &c, VecDoub_O &x) {
     const Doub EPS = 1.0e-6;
     const Doub SIGMA = 0.9;
     const Doub DELTA = 0.02;
-    const Doub BIG = numeric_limits<Doub>::max();
+    const Doub BIG = std::numeric_limits<Doub>::max();
     Int i, j, iter, status;
     Int m = a.nrows;
     Int n = a.ncols;
@@ -58,10 +58,10 @@ Int intpt(const NRsparseMat &a, VecDoub_I &b, VecDoub_I &c, VecDoub_O &x) {
     }
     Doub normrp_old = BIG;
     Doub normrd_old = BIG;
-    cout << setw(4) << "iter" << setw(12) << "Primal obj." << setw(9) <<
-         "||r_p||" << setw(13) << "Dual obj." << setw(11) << "||r_d||" <<
-         setw(13) << "duality gap" << setw(16) << "normalized gap" << endl;
-    cout << scientific << setprecision(4);
+    std::cout << std::setw(4) << "iter" << std::setw(12) << "Primal obj." << std::setw(9) <<
+         "||r_p||" << std::setw(13) << "Dual obj." << std::setw(11) << "||r_d||" <<
+         std::setw(13) << "duality gap" << std::setw(16) << "normalized gap" << std::endl;
+    std::cout << std::scientific << std::setprecision(4);
     for (iter = 0; iter < MAXITS; iter++) {
         ax = a.ax(x);
         for (i = 0; i < m; i++)
@@ -76,9 +76,9 @@ Int intpt(const NRsparseMat &a, VecDoub_I &b, VecDoub_I &c, VecDoub_O &x) {
         Doub primal_obj = dotprod(c, x);
         Doub dual_obj = dotprod(b, y);
         Doub gamma_norm = gamma / (1.0 + abs(primal_obj));
-        cout << setw(3) << iter << setw(12) << primal_obj << setw(12) <<
-             normrp << setw(12) << dual_obj << setw(12) << normrd << setw(12)
-             << gamma << setw(12) << gamma_norm << endl;
+        std::cout << std::setw(3) << iter << std::setw(12) << primal_obj << std::setw(12) <<
+             normrp << std::setw(12) << dual_obj << std::setw(12) << normrd << std::setw(12)
+             << gamma << std::setw(12) << gamma_norm << std::endl;
         if (normrp < EPS && normrd < EPS && gamma_norm < EPS)
             return status = 0;
         if (normrp > 1000 * normrp_old && normrp > EPS)
@@ -139,7 +139,7 @@ void NRldl::order() {
     Doub flops = 0;
     for (Int j = 0; j < n; j++)
         flops += ((Doub) Lnz[j]) * (Lnz[j] + 2);
-    cout << "Nz in L: " << lnz << " Flop count: " << flops << endl;
+    std::cout << "Nz in L: " << lnz << " Flop count: " << flops << std::endl;
     /* -------------------------------------------------------------- */
     /* allocate remainder of L, of size lnz */
     /* -------------------------------------------------------------- */

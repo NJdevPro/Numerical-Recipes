@@ -4,7 +4,7 @@
 VecInt dynpro(const VecInt &nstate,
               Doub cost(Int jj, Int kk, Int ii)) {
     const Doub BIG = 1.e99;
-    static const Doub EPS = numeric_limits<Doub>::epsilon();
+    static const Doub EPS = std::numeric_limits<Doub>::epsilon();
     Int i, j, k, nstage = nstate.size() - 1;
     Doub a, b;
     VecInt answer(nstage + 1);

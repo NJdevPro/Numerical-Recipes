@@ -53,20 +53,20 @@ void vegas(VecDoub_I &regn, Doub fxn(VecDoub_I &, const Doub), const Int init,
             ndo = nd;
         }
         if (nprn >= 0) {
-            cout << " Input parameters for vegas";
-            cout << "  ndim= " << setw(4) << ndim;
-            cout << "  ncall= " << setw(8) << calls << endl;
-            cout << setw(34) << "  it=" << setw(5) << it;
-            cout << "  itmx=" << setw(5) << itmx << endl;
-            cout << setw(34) << "  nprn=" << setw(5) << nprn;
-            cout << "  ALPH=" << setw(9) << ALPH << endl;
-            cout << setw(34) << "  mds=" << setw(5) << mds;
-            cout << "  nd=" << setw(5) << nd << endl;
+            std::cout << " Input parameters for vegas";
+            std::cout << "  ndim= " << std::setw(4) << ndim;
+            std::cout << "  ncall= " << std::setw(8) << calls << std::endl;
+            std::cout << std::setw(34) << "  it=" << std::setw(5) << it;
+            std::cout << "  itmx=" << std::setw(5) << itmx << std::endl;
+            std::cout << std::setw(34) << "  nprn=" << std::setw(5) << nprn;
+            std::cout << "  ALPH=" << std::setw(9) << ALPH << std::endl;
+            std::cout << std::setw(34) << "  mds=" << std::setw(5) << mds;
+            std::cout << "  nd=" << std::setw(5) << nd << std::endl;
             for (j = 0; j < ndim; j++) {
-                cout << setw(30) << " x1[" << setw(2) << j;
-                cout << "]= " << setw(11) << regn[j] << " xu[";
-                cout << setw(2) << j << "]= ";
-                cout << setw(11) << regn[j + ndim] << endl;
+                std::cout << std::setw(30) << " x1[" << std::setw(2) << j;
+                std::cout << "]= " << std::setw(11) << regn[j] << " xu[";
+                std::cout << std::setw(2) << j << "]= ";
+                std::cout << std::setw(11) << regn[j + ndim] << std::endl;
             }
         }
     }
@@ -127,22 +127,22 @@ void vegas(VecDoub_I &regn, Doub fxn(VecDoub_I &, const Doub), const Int init,
         sd = sqrt(1.0 / swgt);
         tsi = sqrt(tsi);
         if (nprn >= 0) {
-            cout << " iteration no. " << setw(3) << (it + 1);
-            cout << " : integral = " << setw(14) << ti;
-            cout << " +/- " << setw(9) << tsi << endl;
-            cout << " all iterations:  " << " integral =";
-            cout << setw(14) << tgral << "+-" << setw(9) << sd;
-            cout << " chi**2/IT n =" << setw(9) << chi2a << endl;
+            std::cout << " iteration no. " << std::setw(3) << (it + 1);
+            std::cout << " : integral = " << std::setw(14) << ti;
+            std::cout << " +/- " << std::setw(9) << tsi << std::endl;
+            std::cout << " all iterations:  " << " integral =";
+            std::cout << std::setw(14) << tgral << "+-" << std::setw(9) << sd;
+            std::cout << " chi**2/IT n =" << std::setw(9) << chi2a << std::endl;
             if (nprn != 0) {
                 for (j = 0; j < ndim; j++) {
-                    cout << " DATA FOR axis  " << setw(2) << j << endl;
-                    cout << "     X      delta i          X      delta i";
-                    cout << "          X       deltai" << endl;
+                    std::cout << " DATA FOR axis  " << std::setw(2) << j << std::endl;
+                    std::cout << "     X      delta i          X      delta i";
+                    std::cout << "          X       deltai" << std::endl;
                     for (i = nprn / 2; i < nd - 2; i += nprn + 2) {
-                        cout << setw(8) << xi[j][i] << setw(12) << di[i][j];
-                        cout << setw(12) << xi[j][i + 1] << setw(12) << di[i + 1][j];
-                        cout << setw(12) << xi[j][i + 2] << setw(12) << di[i + 2][j];
-                        cout << endl;
+                        std::cout << std::setw(8) << xi[j][i] << std::setw(12) << di[i][j];
+                        std::cout << std::setw(12) << xi[j][i + 1] << std::setw(12) << di[i + 1][j];
+                        std::cout << std::setw(12) << xi[j][i + 2] << std::setw(12) << di[i + 2][j];
+                        std::cout << std::endl;
                     }
                 }
             }

@@ -16,12 +16,12 @@ struct Icrc {
         jcrc = (jfill | (jfill << 8));
     }
 
-    Uint crc(const string &bufptr) {
+    Uint crc(const std::string &bufptr) {
         jcrc = (jfill | (jfill << 8));
         return concat(bufptr);
     }
 
-    Uint concat(const string &bufptr) {
+    Uint concat(const std::string &bufptr) {
         Uint j, cword = jcrc, len = bufptr.size();
         for (j = 0; j < len; j++) {
             cword = icrctb[Uchar(bufptr[j]) ^ hibyte(cword)] ^ (lobyte(cword) << 8);

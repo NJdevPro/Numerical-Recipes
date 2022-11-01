@@ -83,11 +83,11 @@ Solvde::Solvde(const Int itmaxx, const Doub convv, const Doub slowcc,
             for (k = k1; k < k2; k++)
                 y[j][k] -= fac * c[jv][0][k];
         }
-        cout << setw(8) << "Iter.";
-        cout << setw(10) << "Error" << setw(10) << "FAC" << endl;
-        cout << setw(6) << it;
-        cout << fixed << setprecision(6) << setw(13) << err;
-        cout << setw(12) << fac << endl;
+        std::cout << std::setw(8) << "Iter.";
+        std::cout << std::setw(10) << "Error" << std::setw(10) << "FAC" << std::endl;
+        std::cout << std::setw(6) << it;
+        std::cout << std::fixed << std::setprecision(6) << std::setw(13) << err;
+        std::cout << std::setw(12) << fac << std::endl;
         if (err < conv) return;
     }
     throw("Too many iterations in solvde");

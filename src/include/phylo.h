@@ -9,7 +9,7 @@ struct Phylagglomnode {
 struct Phylagglom {
     Int n, root, fsroot;
     Doub seqmax, depmax;
-    vector<Phylagglomnode> t;
+    std::vector<Phylagglomnode> t;
 
     virtual void premin(MatDoub &d, VecInt &nextp) = 0;
 

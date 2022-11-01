@@ -96,7 +96,7 @@ StepperRoss<D>::StepperRoss(VecDoub_IO &yy, VecDoub_IO &dydxx, Doub &xx,
                             const Doub atoll, const Doub rtoll, bool dens) :
         StepperBase(yy, dydxx, xx, atoll, rtoll, dens), dfdy(n, n), dfdx(n), k1(n), k2(n),
         k3(n), k4(n), k5(n), k6(n), cont1(n), cont2(n), cont3(n), cont4(n), a(n, n) {
-    EPS = numeric_limits<Doub>::epsilon();
+    EPS = std::numeric_limits<Doub>::epsilon();
 }
 
 template<class D>

@@ -127,7 +127,7 @@ struct Brent : Bracketmethod {
     Doub minimize(T &func) {
         const Int ITMAX = 100;
         const Doub CGOLD = 0.3819660;
-        const Doub ZEPS = numeric_limits<Doub>::epsilon() * 1.0e-3;
+        const Doub ZEPS = std::numeric_limits<Doub>::epsilon() * 1.0e-3;
         Doub a, b, d = 0.0, etemp, fu, fv, fw, fx;
         Doub p, q, r, tol1, tol2, u, v, w, x, xm;
         Doub e = 0.0;
@@ -196,7 +196,7 @@ struct Dbrent : Bracketmethod {
     template<class T>
     Doub minimize(T &funcd) {
         const Int ITMAX = 100;
-        const Doub ZEPS = numeric_limits<Doub>::epsilon() * 1.0e-3;
+        const Doub ZEPS = std::numeric_limits<Doub>::epsilon() * 1.0e-3;
         Bool ok1, ok2;
         Doub a, b, d = 0.0, d1, d2, du, dv, dw, dx, e = 0.0;
         Doub fu, fv, fw, fx, olde, tol1, tol2, u, u1, u2, v, w, x, xm;

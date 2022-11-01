@@ -44,7 +44,7 @@ StepperBS<D>::StepperBS(VecDoub_IO &yy, VecDoub_IO &dydxx, Doub &xx,
         StepperBase(yy, dydxx, xx, atoll, rtoll, dens), nseq(IMAXX), cost(IMAXX),
         table(KMAXX, n), dydxnew(n), coeff(IMAXX, IMAXX), errfac(2 * IMAXX + 2), ysave(IMAXX, n),
         fsave(IMAXX * (2 * IMAXX + 1), n), ipoint(IMAXX + 1), dens((2 * IMAXX + 5) * n) {
-    EPS = numeric_limits<Doub>::epsilon();
+    EPS = std::numeric_limits<Doub>::epsilon();
     if (dense)
         for (Int i = 0; i < IMAXX; i++)
             nseq[i] = 4 * i + 2;

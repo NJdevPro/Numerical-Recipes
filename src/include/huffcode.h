@@ -53,7 +53,7 @@ struct Huffcode {
                 ilong = j;
             }
         }
-        if (nlong > numeric_limits<Uint>::digits) throw("Code too long in Huffcode.  See text.");
+        if (nlong > std::numeric_limits<Uint>::digits) throw("Code too long in Huffcode.  See text.");
     }
 
     void codeone(const Int ich, char *code, Int &nb) {

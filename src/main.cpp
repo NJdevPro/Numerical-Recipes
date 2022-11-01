@@ -168,6 +168,6 @@ int main(int argc, char** argv) {
         Doub inside = sin(i * pi /3.0) - sin (2.0 * i * pi /3);
         Doub final = outside * inside;
 
-        cout << final << endl;
+        std::cout << final << std::endl;
     }
 }

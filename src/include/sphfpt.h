@@ -84,11 +84,11 @@ Int main_sphfpt(void) {
                                                    load2, d, score);
         newt(v, check, shootf);
         if (check) {
-            cout << "shootf failed; bad initial guess" << endl;
+            std::cout << "shootf failed; bad initial guess" << std::endl;
         } else {
-            cout << "    " << "mu(m,n)" << endl;
-            cout << fixed << setprecision(6);
-            cout << setw(12) << v[0] << endl;
+            std::cout << "    " << "mu(m,n)" << std::endl;
+            std::cout << std::fixed << std::setprecision(6);
+            std::cout << std::setw(12) << v[0] << std::endl;
         }
     }
     return 0;

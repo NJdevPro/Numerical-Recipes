@@ -107,7 +107,7 @@ Odeint<Stepper>::Odeint(VecDoub_IO &ystartt, const Doub xx1, const Doub xx2,
                                                                           x1(xx1), x2(xx2), hmin(hminn),
                                                                           dense(outt.dense), out(outt), derivs(derivss),
                                                                           s(y, dydx, x, atol, rtol, dense) {
-    EPS = numeric_limits<Doub>::epsilon();
+    EPS = std::numeric_limits<Doub>::epsilon();
     h = SIGN(h1, x2 - x1);
     for (Int i = 0; i < nvar; i++) y[i] = ystart[i];
     out.init(s.neqn, x1, x2);

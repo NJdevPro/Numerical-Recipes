@@ -30,8 +30,8 @@ struct IQagent {
         sort(dbuf, nd);
         qold = qnew = qile[0] = newqile[0] = q0;
         qile[nq - 1] = newqile[nq - 1] = qm;
-        pval[0] = min(0.5 / (nt + nd), 0.5 * pval[1]);
-        pval[nq - 1] = max(1. - 0.5 / (nt + nd), 0.5 * (1. + pval[nq - 2]));
+        pval[0] = std::min(0.5 / (nt + nd), 0.5 * pval[1]);
+        pval[nq - 1] = std::max(1. - 0.5 / (nt + nd), 0.5 * (1. + pval[nq - 2]));
         for (iq = 1; iq < nq - 1; iq++) {
             target = (nt + nd) * pval[iq];
             if (tnew < target)

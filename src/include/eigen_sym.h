@@ -29,7 +29,7 @@ struct Jacobi {
     const Doub EPS;
 
     Jacobi(MatDoub_I &aa) : n(aa.nrows()), a(aa), v(n, n), d(n), nrot(0),
-                            EPS(numeric_limits<Doub>::epsilon()) {
+                            EPS(std::numeric_limits<Doub>::epsilon()) {
         Int i, j, ip, iq;
         Doub tresh, theta, tau, t, sm, s, h, g, c;
         VecDoub b(n), z(n);
@@ -212,7 +212,7 @@ void Symmeig::tred2() {
 void Symmeig::tqli() {
     Int m, l, iter, i, k;
     Doub s, r, p, g, f, dd, c, b;
-    const Doub EPS = numeric_limits<Doub>::epsilon();
+    const Doub EPS = std::numeric_limits<Doub>::epsilon();
     for (i = 1; i < n; i++) e[i - 1] = e[i];
     e[n - 1] = 0.0;
     for (l = 0; l < n; l++) {

@@ -45,8 +45,8 @@ struct Epsalg {
 
     Epsalg(Int nmax, Doub epss) : e(nmax), n(0), ncv(0),
                                   cnvgd(0), eps(epss), lastval(0.) {
-        small = numeric_limits<Doub>::min() * 10.0;
-        big = numeric_limits<Doub>::max();
+        small = std::numeric_limits<Doub>::min() * 10.0;
+        big = std::numeric_limits<Doub>::max();
     }
 
     Doub next(Doub sum) {
@@ -83,8 +83,8 @@ struct Levin {
 
     Levin(Int nmax, Doub epss) : numer(nmax), denom(nmax), n(0), ncv(0),
                                  cnvgd(0), eps(epss), lastval(0.) {
-        small = numeric_limits<Doub>::min() * 10.0;
-        big = numeric_limits<Doub>::max();
+        small = std::numeric_limits<Doub>::min() * 10.0;
+        big = std::numeric_limits<Doub>::max();
     }
 
     Doub next(Doub sum, Doub omega, Doub beta = 1.) {

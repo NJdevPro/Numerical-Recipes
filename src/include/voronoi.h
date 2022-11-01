@@ -16,12 +16,12 @@ struct Voredge {
 struct Voronoi : Delaunay {
     Int nseg;
     VecInt trindx;
-    vector<Voredge> segs;
+    std::vector<Voredge> segs;
 
-    Voronoi(vector<Point<2> > pvec);
+    Voronoi(std::vector<Point<2> > pvec);
 };
 
-Voronoi::Voronoi(vector<Point<2> > pvec) :
+Voronoi::Voronoi(std::vector<Point<2> > pvec) :
         Delaunay(pvec, 1), nseg(0), trindx(npts), segs(6 * npts + 12) {
     Int i, j, k, p, jfirst;
     Ullong key;

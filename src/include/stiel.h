@@ -92,7 +92,7 @@ Stiel::Stiel(Int nn, Doub aaa, Doub bbb, Doub wwt2(Doub), Doub ffx(Doub),
 }
 
 Doub Stiel::quad(Quadrature *s) {
-    const Doub EPS = 3.0e-11, MACHEPS = numeric_limits<Doub>::epsilon();
+    const Doub EPS = 3.0e-11, MACHEPS = std::numeric_limits<Doub>::epsilon();
     const Int NMAX = 11;
     Doub olds, sum;
     s->n = 0;

@@ -20,7 +20,7 @@ struct Adapt {
 };
 
 Adapt::Adapt(Doub tol) : TOL(tol), terminate(true), out_of_tolerance(false) {
-    const Doub EPS = numeric_limits<Doub>::epsilon();
+    const Doub EPS = std::numeric_limits<Doub>::epsilon();
     if (TOL < 10.0 * EPS)
         TOL = 10.0 * EPS;
 }

@@ -101,8 +101,8 @@ struct Gamma : Gauleg18 {
 
 };
 
-const Doub Gamma::EPS = numeric_limits<Doub>::epsilon();
-const Doub Gamma::FPMIN = numeric_limits<Doub>::min() / EPS;
+const Doub Gamma::EPS = std::numeric_limits<Doub>::epsilon();
+const Doub Gamma::FPMIN = std::numeric_limits<Doub>::min() / EPS;
 
 Doub Gamma::invgammp(Doub p, Doub a) {
     Int j;
@@ -247,8 +247,8 @@ struct Beta : Gauleg18 {
 
 };
 
-const Doub Beta::EPS = numeric_limits<Doub>::epsilon();
-const Doub Beta::FPMIN = numeric_limits<Doub>::min() / EPS;
+const Doub Beta::EPS = std::numeric_limits<Doub>::epsilon();
+const Doub Beta::FPMIN = std::numeric_limits<Doub>::min() / EPS;
 
 struct Gammadist : Gamma {
     Doub alph, bet, fac;

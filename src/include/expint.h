@@ -4,8 +4,8 @@
 Doub expint(const Int n, const Doub x) {
     static const Int MAXIT = 100;
     static const Doub EULER = 0.577215664901533,
-            EPS = numeric_limits<Doub>::epsilon(),
-            BIG = numeric_limits<Doub>::max() * EPS;
+            EPS = std::numeric_limits<Doub>::epsilon(),
+            BIG = std::numeric_limits<Doub>::max() * EPS;
     Int i, ii, nm1 = n - 1;
     Doub a, b, c, d, del, fact, h, psi, ans;
     if (n < 0 || x < 0.0 || (x == 0.0 && (n == 0 || n == 1))) throw("bad arguments in expint");
@@ -55,8 +55,8 @@ Doub expint(const Int n, const Doub x) {
 Doub ei(const Doub x) {
     static const Int MAXIT = 100;
     static const Doub EULER = 0.577215664901533,
-            EPS = numeric_limits<Doub>::epsilon(),
-            FPMIN = numeric_limits<Doub>::min() / EPS;
+            EPS = std::numeric_limits<Doub>::epsilon(),
+            FPMIN = std::numeric_limits<Doub>::min() / EPS;
     Int k;
     Doub fact, prev, sum, term;
     if (x <= 0.0) throw("Bad argument in ei");

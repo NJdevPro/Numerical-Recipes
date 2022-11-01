@@ -4,7 +4,7 @@
 template<class T>
 void lnsrch(VecDoub_I &xold, const Doub fold, VecDoub_I &g, VecDoub_IO &p,
             VecDoub_O &x, Doub &f, const Doub stpmax, Bool &check, T &func) {
-    const Doub ALF = 1.0e-4, TOLX = numeric_limits<Doub>::epsilon();
+    const Doub ALF = 1.0e-4, TOLX = std::numeric_limits<Doub>::epsilon();
     Doub a, alam, alam2 = 0.0, alamin, b, disc, f2 = 0.0;
     Doub rhs1, rhs2, slope = 0.0, sum = 0.0, temp, test, tmplam;
     Int i, n = xold.size();
@@ -104,7 +104,7 @@ template<class T>
 void newt(VecDoub_IO &x, Bool &check, T &vecfunc) {
     const Int MAXITS = 200;
     const Doub TOLF = 1.0e-8, TOLMIN = 1.0e-12, STPMX = 100.0;
-    const Doub TOLX = numeric_limits<Doub>::epsilon();
+    const Doub TOLX = std::numeric_limits<Doub>::epsilon();
     Int i, j, its, n = x.size();
     Doub den, f, fold, stpmax, sum, temp, test;
     VecDoub g(n), p(n), xold(n);
@@ -167,7 +167,7 @@ void newt(VecDoub_IO &x, Bool &check, T &vecfunc) {
 template<class T>
 void broydn(VecDoub_IO &x, Bool &check, T &vecfunc) {
     const Int MAXITS = 200;
-    const Doub EPS = numeric_limits<Doub>::epsilon();
+    const Doub EPS = std::numeric_limits<Doub>::epsilon();
     const Doub TOLF = 1.0e-8, TOLX = EPS, STPMX = 100.0, TOLMIN = 1.0e-12;
     Bool restrt, skip;
     Int i, its, j, n = x.size();

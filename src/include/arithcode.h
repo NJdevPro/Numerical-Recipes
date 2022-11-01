@@ -12,7 +12,7 @@ struct Arithcode {
             : nch(nnch), nrad(nnrad), ilob(NWK), iupb(NWK), ncumfq(nch + 2) {
         Int j;
         if (nrad > 256) throw("output radix must be <= 256 in Arithcode");
-        minint = numeric_limits<Uint>::max() / nrad;
+        minint = std::numeric_limits<Uint>::max() / nrad;
         ncumfq[0] = 0;
         for (j = 1; j <= nch; j++) ncumfq[j] = ncumfq[j - 1] + MAX(nfreq[j - 1], 1);
         ncum = ncumfq[nch + 1] = ncumfq[nch] + 1;

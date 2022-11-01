@@ -5,7 +5,7 @@ template<class T>
 Doub dfridr(T &func, const Doub x, const Doub h, Doub &err) {
     const Int ntab = 10;
     const Doub con = 1.4, con2 = (con * con);
-    const Doub big = numeric_limits<Doub>::max();
+    const Doub big = std::numeric_limits<Doub>::max();
     const Doub safe = 2.0;
     Int i, j;
     Doub errt, fac, hh, ans;

@@ -230,7 +230,7 @@ struct Nearpoints {
     Qotree<Sphcirc<DIM>, DIM> thetree;
     Sphcirc<DIM> *sphlist;
 
-    Nearpoints(const vector<Point<DIM> > &pvec)
+    Nearpoints(const std::vector<Point<DIM> > &pvec)
             : npts(pvec.size()), thetree(npts, npts, 32 / DIM) {
         Int j, k;
         sphlist = new Sphcirc<DIM>[npts];

@@ -167,7 +167,7 @@ Doub zriddr(T &func, const Doub x1, const Doub x2, const Doub xacc) {
 template<class T>
 Doub zbrent(T &func, const Doub x1, const Doub x2, const Doub tol) {
     const Int ITMAX = 100;
-    const Doub EPS = numeric_limits<Doub>::epsilon();
+    const Doub EPS = std::numeric_limits<Doub>::epsilon();
     Doub a = x1, b = x2, c = x2, d, e, fa = func(a), fb = func(b), fc, p, q, r, s, tol1, xm;
     if ((fa > 0.0 && fb > 0.0) || (fa < 0.0 && fb < 0.0)) throw("Root must be bracketed in zbrent");
     fc = fb;

@@ -116,8 +116,8 @@ Int main_fredex(void) {
     alu.solve(g, g);
     for (Int j = 0; j < N; j++) {
         Doub x = j * PI / (N - 1);
-        cout << fixed << setprecision(2) << setw(6) << (j + 1);
-        cout << setprecision(6) << setw(13) << x << setw(13) << g[j] << endl;
+        std::cout << std::fixed << std::setprecision(2) << std::setw(6) << (j + 1);
+        std::cout << std::setprecision(6) << std::setw(13) << x << std::setw(13) << g[j] << std::endl;
     }
     return 0;
 }

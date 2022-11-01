@@ -97,9 +97,9 @@ struct MParith {
 
     void mpsqrt(VecUchar_O &w, VecUchar_O &u, VecUchar_I &v);
 
-    void mp2dfr(VecUchar_IO &a, string &s);
+    void mp2dfr(VecUchar_IO &a, std::string &s);
 
-    string mppi(const Int np);
+    std::string mppi(const Int np);
 };
 
 void MParith::mpmul(VecUchar_O &w, VecUchar_I &u, VecUchar_I &v) {
@@ -223,7 +223,7 @@ void MParith::mpsqrt(VecUchar_O &w, VecUchar_O &u, VecUchar_I &v) {
     }
 }
 
-void MParith::mp2dfr(VecUchar_IO &a, string &s) {
+void MParith::mp2dfr(VecUchar_IO &a, std::string &s) {
     const Uint IAZ = 48;
     char buffer[4];
     Int j, m;
@@ -241,11 +241,11 @@ void MParith::mp2dfr(VecUchar_IO &a, string &s) {
     }
 }
 
-string MParith::mppi(const Int np) {
+std::string MParith::mppi(const Int np) {
     const Uint MACC = 2;
     Int ir, j, n = np + MACC;
     Uchar mm;
-    string s;
+    std::string s;
     VecUchar x(n), y(n), sx(n), sxi(n), z(n), t(n), pi(n), ss(2 * n), tt(2 * n);
     t[0] = 2;
     for (j = 1; j < n; j++) t[j] = 0;

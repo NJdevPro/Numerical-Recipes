@@ -131,32 +131,32 @@ struct Machar {
     }
 
     void report() {
-        cout << "quantity:  numeric_limits<Doub> says  (we calculate)" << endl;
-        cout << "radix:  " << numeric_limits<Doub>::radix
-             << "  (" << ibeta << ")" << endl;
-        cout << "mantissa digits:  " << numeric_limits<Doub>::digits
-             << "  (" << it << ")" << endl;
-        cout << "round style:  " << numeric_limits<Doub>::round_style
-             << "  (" << irnd << ") [our 5 == IEEE 1]" << endl;
-        cout << "guard digits:  " << "[not in numeric_limits]"
-             << "  (" << ngrd << ")" << endl;
-        cout << "epsilon:  " << numeric_limits<Doub>::epsilon()
-             << "  (" << eps << ")" << endl;
-        cout << "neg epsilon:  " << "[not in numeric_limits]"
-             << "  (" << epsneg << ")" << endl;
-        cout << "epsilon power:  " << "[not in numeric_limits]"
-             << "  (" << machep << ")" << endl;
-        cout << "neg epsilon power:  " << "[not in numeric_limits]"
-             << "  (" << negep << ")" << endl;
-        cout << "exponent digits:  " << "[not in numeric_limits]"
-             << "  (" << iexp << ")" << endl;
-        cout << "min exponent:  " << numeric_limits<Doub>::min_exponent
-             << "  (" << minexp << ")" << endl;
-        cout << "max exponent:  " << numeric_limits<Doub>::max_exponent
-             << "  (" << maxexp << ")" << endl;
-        cout << "minimum:  " << numeric_limits<Doub>::min()
-             << "  (" << xmin << ")" << endl;
-        cout << "maximum:  " << numeric_limits<Doub>::max()
-             << "  (" << xmax << ")" << endl;
+        std::cout << "quantity:  std::numeric_limits<Doub> says  (we calculate)" << std::endl;
+        std::cout << "radix:  " << std::numeric_limits<Doub>::radix
+             << "  (" << ibeta << ")" << std::endl;
+        std::cout << "mantissa digits:  " << std::numeric_limits<Doub>::digits
+             << "  (" << it << ")" << std::endl;
+        std::cout << "round style:  " << std::numeric_limits<Doub>::round_style
+             << "  (" << irnd << ") [our 5 == IEEE 1]" << std::endl;
+        std::cout << "guard digits:  " << "[not in std::numeric_limits]"
+             << "  (" << ngrd << ")" << std::endl;
+        std::cout << "epsilon:  " << std::numeric_limits<Doub>::epsilon()
+             << "  (" << eps << ")" << std::endl;
+        std::cout << "neg epsilon:  " << "[not in std::numeric_limits]"
+             << "  (" << epsneg << ")" << std::endl;
+        std::cout << "epsilon power:  " << "[not in std::numeric_limits]"
+             << "  (" << machep << ")" << std::endl;
+        std::cout << "neg epsilon power:  " << "[not in std::numeric_limits]"
+             << "  (" << negep << ")" << std::endl;
+        std::cout << "exponent digits:  " << "[not in std::numeric_limits]"
+             << "  (" << iexp << ")" << std::endl;
+        std::cout << "min exponent:  " << std::numeric_limits<Doub>::min_exponent
+             << "  (" << minexp << ")" << std::endl;
+        std::cout << "max exponent:  " << std::numeric_limits<Doub>::max_exponent
+             << "  (" << maxexp << ")" << std::endl;
+        std::cout << "minimum:  " << std::numeric_limits<Doub>::min()
+             << "  (" << xmin << ")" << std::endl;
+        std::cout << "maximum:  " << std::numeric_limits<Doub>::max()
+             << "  (" << xmax << ")" << std::endl;
     }
 };

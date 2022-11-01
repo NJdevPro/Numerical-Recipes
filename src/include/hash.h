@@ -158,7 +158,7 @@ struct Hash : Hashtable<keyT, hfnT> {
     using Hashtable<keyT, hfnT>::iget;
     using Hashtable<keyT, hfnT>::iset;
     using Hashtable<keyT, hfnT>::ierase;
-    vector<elT> els;
+    std::vector<elT> els;
 
     Hash(Int nh, Int nm) : Hashtable<keyT, hfnT>(nh, nm), els(nm) {}
 
@@ -197,7 +197,7 @@ struct Mhash : Hashtable<keyT, hfnT> {
     using Hashtable<keyT, hfnT>::ierase;
     using Hashtable<keyT, hfnT>::ireserve;
     using Hashtable<keyT, hfnT>::irelinquish;
-    vector<elT> els;
+    std::vector<elT> els;
     VecInt nextsis;
     Int nextget;
 

@@ -53,7 +53,7 @@ void NRlusol::load_col(Int col, VecInt &row_ind, VecDoub &val) {
 void NRlusol::factorize() {
     LU1FAC(LUSOL, &inform);
     if (inform > LUSOL_INFORM_SERIOUS) {
-        cout << "    Error:" << endl << LUSOL_informstr(LUSOL, inform) << endl;
+        std::cout << "    Error:" << std::endl << LUSOL_informstr(LUSOL, inform) << std::endl;
         throw ("LUSOL exiting");
     }
 }
@@ -160,7 +160,7 @@ Simplex::Simplex(Int mm, Int nn, VecInt_I &initv, VecDoub_I &bb, VecDoub_I &objj
         ad(m + n + 1), u(m + n + 1), x(m + 1), xb(m + 1), v(m + 1), w(m + 1), scale(n + m + 1), a(n + 1) {
     NMAXFAC = 40;
     NREFAC = 50;
-    EPS = numeric_limits<Doub>::epsilon();
+    EPS = std::numeric_limits<Doub>::epsilon();
     EPSSMALL = 1.0e5 * EPS;
     EPSARTIF = 1.0e5 * EPS;
     EPSFEAS = 1.0e8 * EPS;
@@ -176,7 +176,7 @@ void Simplex::solve() {
     scaleit();
     phase0();
     if (verbose)
-        cout << "    at end of phase0,iter= " << nsteps << endl;
+        std::cout << "    at end of phase0,iter= " << nsteps << std::endl;
     if (ierr != 0) {
         delete lu;
         for (Int i = 0; i < n; i++)
@@ -185,7 +185,7 @@ void Simplex::solve() {
     }
     phase1();
     if (verbose)
-        cout << "    at end of phase1,iter= " << nsteps << endl;
+        std::cout << "    at end of phase1,iter= " << nsteps << std::endl;
     if (ierr != 0) {
         delete lu;
         for (Int i = 0; i < n; i++)
@@ -290,7 +290,7 @@ void Simplex::phase0() {
                 return;
             } else {
                 if (verbose)
-                    cout << "    artificial variable remains: ip " << ip << endl;
+                    std::cout << "    artificial variable remains: ip " << ip << std::endl;
                 continue;
             }
         }
@@ -332,7 +332,7 @@ void Simplex::phase1() {
                 return;
             }
             if (verbose)
-                cout << "    attempt to recover" << endl;
+                std::cout << "    attempt to recover" << std::endl;
             ierr = 0;
             first = false;
             refactorize();
@@ -370,7 +370,7 @@ void Simplex::phase2() {
             if (!first)
                 return;
             if (verbose)
-                cout << "    attempt to recover" << endl;
+                std::cout << "    attempt to recover" << std::endl;
             ierr = 0;
             first = false;
             refactorize();
@@ -378,11 +378,11 @@ void Simplex::phase2() {
         transform(x, ip, kp);
         if (verbose) {
             prepare_output();
-            cout << "    in phase2,iter,obj. fn. " << nsteps << " " << u[0] << endl;
+            std::cout << "    in phase2,iter,obj. fn. " << nsteps << " " << u[0] << std::endl;
         }
         if (nsteps >= nmax) {
             prepare_output();
-            cout << "    in phase2,iter,obj. fn. " << nsteps << " " << u[0] << endl;
+            std::cout << "    in phase2,iter,obj. fn. " << nsteps << " " << u[0] << std::endl;
             ierr = 4;
             return;
         }
@@ -471,7 +471,7 @@ void Simplex::transform(VecDoub &x, Int ip, Int kp) {
         lu->update(x, ip, ok);
         if (ok != 0) {
             if (verbose)
-                cout << "    singular update, refactorize" << endl;
+                std::cout << "    singular update, refactorize" << std::endl;
             ad[oldord] = -1;
             ad[kp] = 1;
             ord[ip] = oldord;

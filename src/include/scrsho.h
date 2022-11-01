@@ -11,8 +11,8 @@ void scrsho(T &fx) {
     Int i;
     for (;;) {
         Doub ymax = -9.99e99, ymin = 9.99e99, del;
-        cout << endl << "Enter x1 x2 (x1=x2 to stop):" << endl;
-        cin >> x1 >> x2;
+        std::cout << std::endl << "Enter x1 x2 (x1=x2 to stop):" << std::endl;
+        std::cin >> x1 >> x2;
         if (x1 == x2) break;
         for (i = 0; i < RES; i++) {
             xx[i] = x1 + i * (x2 - x1) / (RES - 1.);
