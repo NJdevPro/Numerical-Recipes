@@ -1,4 +1,5 @@
 #pragma once
+#include <nr3.h>
 
 void vegas(VecDoub_I &regn, Doub fxn(VecDoub_I &, const Doub), const Int init,
            const Int ncall, const Int itmx, const Int nprn, Doub &tgral, Doub &sd,

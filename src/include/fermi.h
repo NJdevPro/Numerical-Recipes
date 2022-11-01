@@ -1,4 +1,5 @@
 #pragma once
+#include <nr3.h>
 
 struct Fermi {
     Doub kk, etaa, thetaa;

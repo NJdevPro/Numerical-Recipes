@@ -1,4 +1,5 @@
 #pragma once
+#include <nr3.h>
 
 struct Linear_interp : Base_interp {
     Linear_interp(VecDoub_I &xv, VecDoub_I &yv)

@@ -1,4 +1,5 @@
 #pragma once
+#include <nr3.h>
 
 void tridag(VecDoub_I &a, VecDoub_I &b, VecDoub_I &c, VecDoub_I &r, VecDoub_O &u) {
     Int j, n = a.size();

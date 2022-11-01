@@ -1,4 +1,5 @@
 #pragma once
+#include <nr3.h>
 
 #ifndef _NR3_H_
 #define _NR3_H_

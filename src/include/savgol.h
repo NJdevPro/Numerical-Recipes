@@ -1,4 +1,5 @@
 #pragma once
+#include <nr3.h>
 
 void savgol(VecDoub_O &c, const Int np, const Int nl, const Int nr,
             const Int ld, const Int m) {

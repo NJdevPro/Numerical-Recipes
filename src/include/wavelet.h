@@ -1,4 +1,5 @@
 #pragma once
+#include <nr3.h>
 
 struct Wavelet {
     virtual void filt(VecDoub_IO &a, const Int n, const Int isign) = 0;

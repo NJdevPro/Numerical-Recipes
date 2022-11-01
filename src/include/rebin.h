@@ -1,4 +1,5 @@
 #pragma once
+#include <nr3.h>
 
 void rebin(const Doub rc, const Int nd, VecDoub_I &r, VecDoub_O &xin,
            MatDoub_IO &xi, const Int j) {

@@ -1,4 +1,5 @@
 #pragma once
+#include <nr3.h>
 
 struct Base_interp {
     Int n, mm, jsav, cor, dj;

@@ -1,4 +1,5 @@
 #pragma once
+#include <nr3.h>
 
 struct Bessjy {
     static const Doub xj00, xj10, xj01, xj11, twoopi, pio4;

@@ -1,4 +1,5 @@
 #pragma once
+#include <nr3.h>
 
 void fourn(Doub *data, VecInt_I &nn, const Int isign) {
     Int idim, i1, i2, i3, i2rev, i3rev, ip1, ip2, ip3, ifp1, ifp2;

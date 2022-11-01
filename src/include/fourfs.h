@@ -1,4 +1,5 @@
 #pragma once
+#include <nr3.h>
 
 void fourew(NRvector<fstream *> &file, Int &na, Int &nb, Int &nc, Int &nd) {
     Int i;

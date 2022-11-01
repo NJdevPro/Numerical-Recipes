@@ -1,4 +1,5 @@
 #pragma once
+#include <nr3.h>
 
 template<class T>
 Doub qgaus(T &func, const Doub a, const Doub b) {

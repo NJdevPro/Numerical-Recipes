@@ -1,4 +1,5 @@
 #pragma once
+#include <nr3.h>
 
 template<class G, class K>
 void voltra(const Doub t0, const Doub h, G &g, K &ak, VecDoub_O &t, MatDoub_O &f) {

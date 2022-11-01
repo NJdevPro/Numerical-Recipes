@@ -1,4 +1,5 @@
 #pragma once
+#include <nr3.h>
 
 struct IQagent {
     static const Int nbuf = 1000;

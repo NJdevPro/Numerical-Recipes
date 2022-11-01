@@ -1,4 +1,5 @@
 #pragma once
+#include <nr3.h>
 
 void ksone(VecDoub_IO &data, Doub func(const Doub), Doub &d, Doub &prob) {
     Int j, n = data.size();

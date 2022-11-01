@@ -1,4 +1,5 @@
 #pragma once
+#include <nr3.h>
 
 template<class T>
 struct F1dim {

@@ -1,4 +1,5 @@
 #pragma once
+#include <nr3.h>
 
 Int julday(const Int mm, const Int id, const Int iyyy) {
     const Int IGREG = 15 + 31 * (10 + 12 * 1582);

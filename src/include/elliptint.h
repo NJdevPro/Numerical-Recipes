@@ -1,4 +1,5 @@
 #pragma once
+#include <nr3.h>
 
 Doub rc(const Doub x, const Doub y) {
     static const Doub ERRTOL = 0.0012, THIRD = 1.0 / 3.0, C1 = 0.3, C2 = 1.0 / 7.0,

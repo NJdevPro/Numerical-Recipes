@@ -1,4 +1,5 @@
 #pragma once
+#include <nr3.h>
 
 void zrhqr(VecDoub_I &a, VecComplex_O &rt) {
     Int m = a.size() - 1;

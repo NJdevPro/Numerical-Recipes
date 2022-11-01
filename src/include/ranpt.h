@@ -1,4 +1,5 @@
 #pragma once
+#include <nr3.h>
 
 void ranpt(VecDoub_O &pt, VecDoub_I &regn) {
     static const int RANSEED = 5331;

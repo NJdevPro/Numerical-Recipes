@@ -1,4 +1,5 @@
 #pragma once
+#include <nr3.h>
 
 #include "sparse.h"
 #include "linbcg.h"

@@ -1,4 +1,5 @@
 #pragma once
+#include <nr3.h>
 
 template<class T>
 void dfpmin(VecDoub_IO &p, const Doub gtol, Int &iter, Doub &fret, T &funcd) {

@@ -1,4 +1,5 @@
 #pragma once
+#include <nr3.h>
 
 Doub selip(const Int k, VecDoub_I &arr) {
     const Int M = 64;

@@ -1,4 +1,5 @@
 #pragma once
+#include <nr3.h>
 
 struct Linbcg {
     virtual void asolve(VecDoub_I &b, VecDoub_O &x, const Int itrnsp) = 0;

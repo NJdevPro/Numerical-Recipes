@@ -1,4 +1,5 @@
 #pragma once
+#include <nr3.h>
 
 void sobseq(const Int n, VecDoub_O &x) {
     const Int MAXBIT = 30, MAXDIM = 6;

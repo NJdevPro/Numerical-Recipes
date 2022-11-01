@@ -1,4 +1,5 @@
 #pragma once
+#include <nr3.h>
 
 Doub invxlogx(Doub y) {
     const Doub ooe = 0.367879441171442322;

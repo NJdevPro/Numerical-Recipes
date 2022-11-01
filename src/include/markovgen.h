@@ -1,4 +1,5 @@
 #pragma once
+#include <nr3.h>
 
 void markovgen(const MatDoub_I &atrans, VecInt_O &out, Int istart = 0,
                Int seed = 1) {

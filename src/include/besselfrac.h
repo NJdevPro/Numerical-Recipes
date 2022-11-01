@@ -1,4 +1,5 @@
 #pragma once
+#include <nr3.h>
 
 struct Bessel {
     static const Int NUSE1 = 7, NUSE2 = 8;

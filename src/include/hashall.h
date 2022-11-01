@@ -1,4 +1,5 @@
 #pragma once
+#include <nr3.h>
 
 void psdes(Uint &lword, Uint &rword) {
     const int NITER = 2;

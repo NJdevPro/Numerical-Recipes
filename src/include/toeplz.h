@@ -1,4 +1,5 @@
 #pragma once
+#include <nr3.h>
 
 void toeplz(VecDoub_I &r, VecDoub_O &x, VecDoub_I &y) {
     Int j, k, m, m1, m2, n1, n = y.size();

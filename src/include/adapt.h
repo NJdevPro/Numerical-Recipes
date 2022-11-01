@@ -1,6 +1,8 @@
 #pragma once
+#include <nr3.h>
 
 #pragma once
+#include <nr3.h>
 
 struct Adapt {
     Doub TOL, toler;

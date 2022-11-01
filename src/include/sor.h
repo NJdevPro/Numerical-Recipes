@@ -1,4 +1,5 @@
 #pragma once
+#include <nr3.h>
 
 void sor(MatDoub_I &a, MatDoub_I &b, MatDoub_I &c, MatDoub_I &d, MatDoub_I &e,
          MatDoub_I &f, MatDoub_IO &u, const Doub rjac) {

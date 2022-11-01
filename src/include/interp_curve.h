@@ -1,4 +1,5 @@
 #pragma once
+#include <nr3.h>
 
 struct Curve_interp {
     Int dim, n, in;

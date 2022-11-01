@@ -1,4 +1,5 @@
 #pragma once
+#include <nr3.h>
 
 #include "interp_linear.h"
 

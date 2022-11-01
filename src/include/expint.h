@@ -1,4 +1,5 @@
 #pragma once
+#include <nr3.h>
 
 Doub expint(const Int n, const Doub x) {
     static const Int MAXIT = 100;

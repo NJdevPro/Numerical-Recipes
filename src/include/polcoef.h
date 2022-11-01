@@ -1,4 +1,5 @@
 #pragma once
+#include <nr3.h>
 
 void polcoe(VecDoub_I &x, VecDoub_I &y, VecDoub_O &cof) {
     Int k, j, i, n = x.size();

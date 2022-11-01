@@ -1,4 +1,5 @@
 #pragma once
+#include <nr3.h>
 
 void sparmatfill(NRvector<NRsparseCol> &sparmat, MatDoub &fullmat) {
     Int n, m, nz, nn = fullmat.nrows(), mm = fullmat.ncols();

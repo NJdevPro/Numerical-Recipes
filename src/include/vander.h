@@ -1,4 +1,5 @@
 #pragma once
+#include <nr3.h>
 
 void vander(VecDoub_I &x, VecDoub_O &w, VecDoub_I &q) {
     Int i, j, k, n = q.size();

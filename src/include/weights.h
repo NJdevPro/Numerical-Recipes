@@ -1,4 +1,5 @@
 #pragma once
+#include <nr3.h>
 
 void weights(const Doub z, VecDoub_I &x, MatDoub_O &c) {
     Int n = c.nrows() - 1;

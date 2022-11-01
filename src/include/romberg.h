@@ -1,4 +1,5 @@
 #pragma once
+#include <nr3.h>
 
 template<class T>
 Doub qromb(T &func, Doub a, Doub b, const Doub eps = 1.0e-10) {

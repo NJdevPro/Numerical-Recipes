@@ -1,4 +1,5 @@
 #pragma once
+#include <nr3.h>
 
 void correl(VecDoub_I &data1, VecDoub_I &data2, VecDoub_O &ans) {
     Int no2, i, n = data1.size();

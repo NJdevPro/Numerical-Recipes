@@ -1,4 +1,5 @@
 #pragma once
+#include <nr3.h>
 
 void usrfun(VecDoub_I &x, VecDoub_O &fvec, MatDoub_O &fjac) {}
 

@@ -1,4 +1,5 @@
 #pragma once
+#include <nr3.h>
 
 struct Ross_constants {
     static const Doub c2, c3, c4, bet2p, bet3p, bet4p, d1, d2, d3, d4, a21, a31, a32,

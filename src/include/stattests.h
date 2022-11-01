@@ -1,4 +1,5 @@
 #pragma once
+#include <nr3.h>
 
 void ttest(VecDoub_I &data1, VecDoub_I &data2, Doub &t, Doub &prob) {
     Beta beta;

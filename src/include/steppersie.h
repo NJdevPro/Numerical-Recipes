@@ -1,4 +1,5 @@
 #pragma once
+#include <nr3.h>
 
 template<class D>
 struct StepperSie : StepperBase {

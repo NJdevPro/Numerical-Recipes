@@ -1,4 +1,5 @@
 #pragma once
+#include <nr3.h>
 
 void quadvl(const Doub x, const Doub y, Doub &fa, Doub &fb, Doub &fc, Doub &fd) {
     Doub qa, qb, qc, qd;

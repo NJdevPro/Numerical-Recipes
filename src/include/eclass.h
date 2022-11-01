@@ -1,4 +1,5 @@
 #pragma once
+#include <nr3.h>
 
 void eclass(VecInt_O &nf, VecInt_I &lista, VecInt_I &listb) {
     Int l, k, j, n = nf.size(), m = lista.size();

@@ -1,4 +1,5 @@
 #pragma once
+#include <nr3.h>
 
 void eigsrt(VecDoub_IO &d, MatDoub_IO *v = NULL) {
     Int k;

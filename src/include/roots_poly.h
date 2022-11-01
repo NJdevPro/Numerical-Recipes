@@ -1,4 +1,5 @@
 #pragma once
+#include <nr3.h>
 
 void laguer(VecComplex_I &a, Complex &x, Int &its) {
     const Int MR = 8, MT = 10, MAXIT = MT * MR;

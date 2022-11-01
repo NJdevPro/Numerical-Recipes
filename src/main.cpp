@@ -1,7 +1,3 @@
-//
-// Created by njanin on 01/11/22.
-//
-
 #include <iostream>
 
 #include <nr3.h>

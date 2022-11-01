@@ -1,4 +1,5 @@
 #pragma once
+#include <nr3.h>
 
 void moment(VecDoub_I &data, Doub &ave, Doub &adev, Doub &sdev, Doub &var,
             Doub &skew, Doub &curt) {

@@ -1,4 +1,5 @@
 #pragma once
+#include <nr3.h>
 
 void pcshft(Doub a, Doub b, VecDoub_IO &d) {
     Int k, j, n = d.size();

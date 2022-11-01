@@ -1,4 +1,5 @@
 #pragma once
+#include <nr3.h>
 
 struct Bracketmethod {
     Doub ax, bx, cx, fa, fb, fc;

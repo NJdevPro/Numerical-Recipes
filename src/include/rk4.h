@@ -1,4 +1,5 @@
 #pragma once
+#include <nr3.h>
 
 void rk4(VecDoub_I &y, VecDoub_I &dydx, const Doub x, const Doub h,
          VecDoub_O &yout, void derivs(const Doub, VecDoub_I &, VecDoub_O &)) {

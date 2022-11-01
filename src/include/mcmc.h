@@ -1,4 +1,5 @@
 #pragma once
+#include <nr3.h>
 
 struct State {
     Doub lam1, lam2;

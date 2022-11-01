@@ -1,4 +1,5 @@
 #pragma once
+#include <nr3.h>
 
 Doub plegendre(const Int l, const Int m, const Doub x) {
     static const Doub PI = 3.141592653589793;

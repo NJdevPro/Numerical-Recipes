@@ -1,4 +1,5 @@
 #pragma once
+#include <nr3.h>
 
 void period(VecDoub_I &x, VecDoub_I &y, const Doub ofac, const Doub hifac,
             VecDoub_O &px, VecDoub_O &py, Int &nout, Int &jmax, Doub &prob) {

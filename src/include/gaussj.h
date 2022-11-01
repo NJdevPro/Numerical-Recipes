@@ -1,4 +1,5 @@
 #pragma once
+#include <nr3.h>
 
 void gaussj(MatDoub_IO &a, MatDoub_IO &b) {
     Int i, icol, irow, j, k, l, ll, n = a.nrows(), m = b.ncols();

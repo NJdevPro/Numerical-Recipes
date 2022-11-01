@@ -1,4 +1,5 @@
 #pragma once
+#include <nr3.h>
 
 Complex cisi(const Doub x) {
     static const Int MAXIT = 100;

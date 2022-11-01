@@ -1,4 +1,5 @@
 #pragma once
+#include <nr3.h>
 
 template<class T>
 void sort(NRvector<T> &arr, Int m = -1) {

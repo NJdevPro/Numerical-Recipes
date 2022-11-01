@@ -1,4 +1,5 @@
 #pragma once
+#include <nr3.h>
 
 Doub gammln(const Doub xx) {
     Int j;

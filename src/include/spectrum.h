@@ -1,4 +1,5 @@
 #pragma once
+#include <nr3.h>
 
 struct Spectreg {
     Int m, m2, nsum;

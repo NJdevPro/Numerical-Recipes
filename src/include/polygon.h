@@ -1,4 +1,5 @@
 #pragma once
+#include <nr3.h>
 
 Int polywind(const vector<Point<2> > &vt, const Point<2> &pt) {
     Int i, np, wind = 0;

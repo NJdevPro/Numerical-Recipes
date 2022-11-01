@@ -1,4 +1,5 @@
 #pragma once
+#include <nr3.h>
 
 VecInt dynpro(const VecInt &nstate,
               Doub cost(Int jj, Int kk, Int ii)) {

@@ -1,4 +1,5 @@
 #pragma once
+#include <nr3.h>
 
 Doub dawson(const Doub x) {
     static const Int NMAX = 6;

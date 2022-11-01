@@ -1,4 +1,5 @@
 #pragma once
+#include <nr3.h>
 
 void four1(Doub *data, const Int n, const Int isign) {
     Int nn, mmax, m, j, istep, i;

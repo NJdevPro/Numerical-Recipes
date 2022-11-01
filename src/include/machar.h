@@ -1,4 +1,5 @@
 #pragma once
+#include <nr3.h>
 
 struct Machar {
     Int ibeta, it, irnd, ngrd, machep, negep, iexp, minexp, maxexp;

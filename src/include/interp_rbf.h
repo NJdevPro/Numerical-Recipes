@@ -1,4 +1,5 @@
 #pragma once
+#include <nr3.h>
 
 struct RBF_fn {
     virtual Doub rbf(Doub r) = 0;

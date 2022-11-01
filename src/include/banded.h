@@ -1,4 +1,5 @@
 #pragma once
+#include <nr3.h>
 
 void banmul(MatDoub_I &a, const Int m1, const Int m2, VecDoub_I &x,
             VecDoub_O &b) {

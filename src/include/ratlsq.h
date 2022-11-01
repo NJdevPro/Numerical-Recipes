@@ -1,4 +1,5 @@
 #pragma once
+#include <nr3.h>
 
 Ratfn ratlsq(Doub fn(const Doub), const Doub a, const Doub b, const Int mm,
              const Int kk, Doub &dev) {

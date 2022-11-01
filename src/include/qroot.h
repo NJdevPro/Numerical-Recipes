@@ -1,4 +1,5 @@
 #pragma once
+#include <nr3.h>
 
 void qroot(VecDoub_I &p, Doub &b, Doub &c, const Doub eps) {
     const Int ITMAX = 20;

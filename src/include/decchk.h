@@ -1,4 +1,5 @@
 #pragma once
+#include <nr3.h>
 
 Bool decchk(string str, char &ch) {
     char c;

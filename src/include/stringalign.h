@@ -1,4 +1,5 @@
 #pragma once
+#include <nr3.h>
 
 void stringalign(char *ain, char *bin, Doub mispen, Doub gappen,
                  Doub skwpen, char *aout, char *bout, char *summary) {

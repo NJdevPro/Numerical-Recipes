@@ -1,4 +1,5 @@
 #pragma once
+#include <nr3.h>
 
 struct Erf {
     static const Int ncof = 28;

@@ -1,4 +1,5 @@
 #pragma once
+#include <nr3.h>
 
 struct Fitmrq {
     static const Int NDONE = 4, ITMAX = 1000;

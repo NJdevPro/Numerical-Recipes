@@ -1,4 +1,5 @@
 #pragma once
+#include <nr3.h>
 
 struct NRf3 {
     Doub xsav, ysav;
