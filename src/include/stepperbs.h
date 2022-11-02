@@ -1,6 +1,5 @@
 #pragma once
 #include <nr3.h>
-
 #include "stepper.h"
 
 template<class D>

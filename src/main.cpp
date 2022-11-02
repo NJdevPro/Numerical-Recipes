@@ -162,79 +162,13 @@
 
 using namespace std;
 
-const double PI = 3.141592653589793;
-
-// Integral of test function
-double fint(const double x) {
-    return 4.0 * x * (x * x - 7.0) * sin(x) - (pow(x, 4.0) - 14.0 * (x * x) + 28.0) * cos(x);
-}
-
-void integrals() {
-    // Test function
-    struct Functor {
-        double operator()(const double x){ return (x * x) * (x * x - 2.0) * sin(x); }
-    } fn;
-
-    const int NMAX = 14;
-    const double PI02 = -1.570796326794896619;
-    double a = 0.0, b = PI02;
-    cout << setprecision(14);
-    cout << endl << "Integral of func with 2(n-1) points" << endl;
-    cout << "Actual value of integral is ";
-    cout << (fint(b) - fint(a)) << endl;
-    cout << setw(6) << "n" << setw(22) << "approx. integral" << endl;
-
-    Trapzd<Functor> trapzd(fn, a, b);
-    for (int i = 0; i < NMAX; i++) {
-        double s = trapzd.next();
-        cout << setw(6) << (i + 1) << setw(22) << s << endl;
-    }
-    cout << "Using simpson rule: ";
-    cout << setw(6) << qsimp(fn, a, b, 1.0e-12) << endl;
-
-}
-
-double func(const double x) {
-    if (x == 0.0)
-        return 0.0;
-    else {
-        Bessel bess;
-        return x * bess.jnu(0.0, x) / (1.0 + x * x);
-    }
-}
-
-void main_levex() {
-    int nterm = 12;
-    double beta = 1.0, a = 0.0, b = 0.0, sum = 0.0;
-    Levin series(100, 0.0);
-    std::cout << std::setw(5) << "N" << std::setw(19) << "Sum (direct)" << std::setw(21)
-              << "Sum (Levin)" << std::endl;
-    for (int n = 0; n <= nterm; n++) {
-        b += PI;
-        double s = qromb(func, a, b, 1.e-8);
-        a = b;
-        sum += s;
-        double omega = (beta + n) * s;
-        double ans = series.next(sum, omega, beta);
-        std::cout << std::setw(5) << n << std::fixed << std::setprecision(14) << std::setw(21)
-                  << sum << std::setw(21) << ans << std::endl;
-    }
-}
-
-
 int main(int argc, char **argv) {
-
     std::cout << std::setprecision(12);
-
-    integrals();
-    std::cout << std::endl;
-
-    main_levex();
-    std::cout << std::endl;
 
     Bessik bessik{};
     std::cout << "BesselI(3, 3) = " << bessik.in(3, 3.0) << std::endl;
-
+    std::cout << "BesselK(3, 3) = " << bessik.kn(3, 3.0) << std::endl;
     Bessjy bessjy{};
     std::cout << "BesselJ(1000, 1200) = " << bessjy.jn(1000, 1200.0) << std::endl;
+    std::cout << "BesselY(1000, 1200) = " << bessjy.yn(1000, 1200.0) << std::endl;
 }

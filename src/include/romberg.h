@@ -1,5 +1,7 @@
 #pragma once
 #include <nr3.h>
+#include "interp_1d.h"
+#include "quadrature.h"
 
 template<class T>
 Doub qromb(T &func, Doub a, Doub b, const Doub eps = 1.0e-10) {

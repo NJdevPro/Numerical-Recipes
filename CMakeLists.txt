@@ -10,4 +10,9 @@ link_libraries(libamd.a libldl.a libsuitesparseconfig.a)
 
 add_executable(Numerical_Recipes src/main.cpp)
 
-#add_executable(sfroid src/sfroid.cpp)
+add_executable(anneal src/test/anneal.cpp)
+add_executable(bessel src/test/bessel.cpp)
+add_executable(integrals src/test/integrals.cpp)
+add_executable(jacobi src/test/jacobi.cpp)
+add_executable(levex src/test/levex.cpp)
+add_executable(odeint src/test/odeint.cpp)
