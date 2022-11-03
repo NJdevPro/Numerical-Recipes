@@ -2,12 +2,14 @@
 #include <nr3.h>
 
 struct LUdcmp {
-    Int n;
+    size_t n;
     MatDoub lu;
     VecInt indx;
     Doub d;
 
     LUdcmp(MatDoub_I &a);
+
+    void decompose(MatDoub &lower, MatDoub &upper);
 
     void solve(VecDoub_I &b, VecDoub_O &x);
 
@@ -22,23 +24,24 @@ struct LUdcmp {
     MatDoub_I &aref;
 };
 
+// BUGGY !!
 LUdcmp::LUdcmp(MatDoub_I &a) : n(a.nrows()), lu(a), aref(a), indx(n) {
     const Doub TINY = 1.0e-40;
-    Int i, imax, j, k;
     Doub big, temp;
-    VecDoub vv(n);
+    VecDoub vv(n);  // pivot coeffs for each row
     d = 1.0;
-    for (i = 0; i < n; i++) {
+    // find the pivot for each row
+    for (size_t i = 0; i < n; i++) {
         big = 0.0;
-        for (j = 0; j < n; j++)
+        for (size_t j = 0; j < n; j++)
             if ((temp = abs(lu[i][j])) > big) big = temp;
         if (big == 0.0) throw("Singular matrix in LUdcmp");
         vv[i] = 1.0 / big;
     }
-    for (k = 0; k < n; k++) {
+    for (size_t k = 0; k < n; k++) {
         big = 0.0;
-        imax = k;
-        for (i = k; i < n; i++) {
+        size_t imax = k;
+        for (size_t i = k; i < n; i++) {
             temp = vv[i] * abs(lu[i][k]);
             if (temp > big) {
                 big = temp;
@@ -46,26 +49,42 @@ LUdcmp::LUdcmp(MatDoub_I &a) : n(a.nrows()), lu(a), aref(a), indx(n) {
             }
         }
         if (k != imax) {
-            for (j = 0; j < n; j++) {
-                temp = lu[imax][j];
-                lu[imax][j] = lu[k][j];
-                lu[k][j] = temp;
+            for (size_t j = 0; j < n; j++) {
+                SWAP(lu[imax][j], lu[k][j]);
             }
             d = -d;
             vv[imax] = vv[k];
         }
         indx[k] = imax;
         if (lu[k][k] == 0.0) lu[k][k] = TINY;
-        for (i = k + 1; i < n; i++) {
+        for (size_t i = k + 1; i < n; i++) {
             temp = lu[i][k] /= lu[k][k];
-            for (j = k + 1; j < n; j++)
+            for (size_t j = k + 1; j < n; j++)
                 lu[i][j] -= temp * lu[k][j];
         }
     }
 }
 
+// Compose separately the lower and upper matrices from the LU decomposition
+void LUdcmp::decompose(MatDoub &lower, MatDoub &upper) {
+    for (size_t k = 0; k < n; k++) {
+        for (size_t l = 0; l < n; l++) {
+            if (l > k) {
+                upper[k][l] = lu[k][l];
+                lower[k][l] = 0.0;
+            } else if (l < k) {
+                upper[k][l] = 0.0;
+                lower[k][l] = lu[k][l];
+            } else {
+                upper[k][l] = lu[k][l];
+                lower[k][l] = 1.0;
+            }
+        }
+    }
+}
+
 void LUdcmp::solve(VecDoub_I &b, VecDoub_O &x) {
-    Int i, ii = 0, ip, j;
+    size_t i, ii = 0, ip, j;
     Doub sum;
     if (b.size() != n || x.size() != n) throw("LUdcmp::solve bad sizes");
     for (i = 0; i < n; i++) x[i] = b[i];
@@ -87,21 +106,20 @@ void LUdcmp::solve(VecDoub_I &b, VecDoub_O &x) {
 }
 
 void LUdcmp::solve(MatDoub_I &b, MatDoub_O &x) {
-    int i, j, m = b.ncols();
+    size_t m = b.ncols();
     if (b.nrows() != n || x.nrows() != n || b.ncols() != x.ncols()) throw("LUdcmp::solve bad sizes");
     VecDoub xx(n);
-    for (j = 0; j < m; j++) {
-        for (i = 0; i < n; i++) xx[i] = b[i][j];
+    for (size_t j = 0; j < m; j++) {
+        for (size_t i = 0; i < n; i++) xx[i] = b[i][j];
         solve(xx, xx);
-        for (i = 0; i < n; i++) x[i][j] = xx[i];
+        for (size_t i = 0; i < n; i++) x[i][j] = xx[i];
     }
 }
 
 void LUdcmp::inverse(MatDoub_O &ainv) {
-    Int i, j;
     ainv.resize(n, n);
-    for (i = 0; i < n; i++) {
-        for (j = 0; j < n; j++) ainv[i][j] = 0.;
+    for (size_t i = 0; i < n; i++) {
+        for (size_t j = 0; j < n; j++) ainv[i][j] = 0.;
         ainv[i][i] = 1.;
     }
     solve(ainv, ainv);
@@ -109,19 +127,18 @@ void LUdcmp::inverse(MatDoub_O &ainv) {
 
 Doub LUdcmp::det() {
     Doub dd = d;
-    for (Int i = 0; i < n; i++) dd *= lu[i][i];
+    for (size_t i = 0; i < n; i++) dd *= lu[i][i];
     return dd;
 }
 
 void LUdcmp::mprove(VecDoub_I &b, VecDoub_IO &x) {
-    Int i, j;
     VecDoub r(n);
-    for (i = 0; i < n; i++) {
+    for (size_t i = 0; i < n; i++) {
         Ldoub sdp = -b[i];
-        for (j = 0; j < n; j++)
+        for (size_t j = 0; j < n; j++)
             sdp += (Ldoub) aref[i][j] * (Ldoub) x[j];
         r[i] = sdp;
     }
     solve(r, r);
-    for (i = 0; i < n; i++) x[i] -= r[i];
+    for (size_t i = 0; i < n; i++) x[i] -= r[i];
 }

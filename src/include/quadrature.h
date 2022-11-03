@@ -9,7 +9,7 @@ struct Quadrature {
 
 template<class T>
 struct Trapzd : Quadrature {
-    Doub a, b, s;
+    Doub a, b, s = 0.0;
     T &func;
 
     Trapzd() {};

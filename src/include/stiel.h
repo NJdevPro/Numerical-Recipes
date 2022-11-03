@@ -59,7 +59,7 @@ struct Stiel {
 };
 
 Doub Stiel::p(const Doub x) {
-    Doub pval, pj, pjm1;
+    Doub pval = 0.0, pj, pjm1;
     if (j == 0)
         return 1.0;
     else {

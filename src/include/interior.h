@@ -130,8 +130,8 @@ NRldl::NRldl(NRsparseMat &adat) : n(adat.ncols), nz(adat.nvals),
                                   Flag(&FFlag[0]) {}
 
 void NRldl::order() {
-    if (amd_order(n, Ap, Ai, P, (Doub *) NULL, Info) != AMD_OK) throw("call to AMD failed");
-    amd_control((Doub *) NULL);
+    if (amd_order(n, Ap, Ai, P, (Doub *) nullptr, Info) != AMD_OK) throw("call to AMD failed");
+    amd_control((Doub *) nullptr);
     //amd_info (Info);
     ldl_symbolic(n, Ap, Ai, Lp, Parent, Lnz, Flag, P, Pinv);
     lnz = Lp[n];

@@ -16,7 +16,7 @@ struct Fitsvd {
 
     Fitsvd(VecDoub_I &xx, VecDoub_I &yy, VecDoub_I &ssig,
            VecDoub funks(const Doub), const Doub TOL = 1.e-12)
-            : ndat(yy.size()), x(&xx), xmd(NULL), y(yy), sig(ssig),
+            : ndat(yy.size()), x(&xx), xmd(nullptr), y(yy), sig(ssig),
               funcs(funks), tol(TOL) {}
 
     void fit() {
@@ -62,7 +62,7 @@ struct Fitsvd {
 
     Fitsvd(MatDoub_I &xx, VecDoub_I &yy, VecDoub_I &ssig,
            VecDoub funks(VecDoub_I &), const Doub TOL = 1.e-12)
-            : ndat(yy.size()), x(NULL), xmd(&xx), y(yy), sig(ssig),
+            : ndat(yy.size()), x(nullptr), xmd(&xx), y(yy), sig(ssig),
               funcsmd(funks), tol(TOL) {}
 
     VecDoub row(MatDoub_I &a, const Int i) {

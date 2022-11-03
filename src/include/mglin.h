@@ -36,9 +36,9 @@ struct Mglin {
     }
 
     ~Mglin() {
-        if (uj != NULL) delete uj;
+        if (uj != nullptr) delete uj;
         for (Int j = 0; j < ng; j++)
-            if (rho[j] != NULL) delete rho[j];
+            if (rho[j] != nullptr) delete rho[j];
     }
 
     void interp(MatDoub_O &uf, MatDoub_I &uc) {

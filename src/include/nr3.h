@@ -122,23 +122,23 @@ public:
 // NRvector definitions
 
 template<class T>
-NRvector<T>::NRvector() : nn(0), v(NULL) {}
+NRvector<T>::NRvector() : nn(0), v(nullptr) {}
 
 template<class T>
-NRvector<T>::NRvector(int n) : nn(n), v(n > 0 ? new T[n] : NULL) {}
+NRvector<T>::NRvector(int n) : nn(n), v(n > 0 ? new T[n] : nullptr) {}
 
 template<class T>
-NRvector<T>::NRvector(int n, const T &a) : nn(n), v(n > 0 ? new T[n] : NULL) {
+NRvector<T>::NRvector(int n, const T &a) : nn(n), v(n > 0 ? new T[n] : nullptr) {
     for (int i = 0; i < n; i++) v[i] = a;
 }
 
 template<class T>
-NRvector<T>::NRvector(int n, const T *a) : nn(n), v(n > 0 ? new T[n] : NULL) {
+NRvector<T>::NRvector(int n, const T *a) : nn(n), v(n > 0 ? new T[n] : nullptr) {
     for (int i = 0; i < n; i++) v[i] = *a++;
 }
 
 template<class T>
-NRvector<T>::NRvector(const NRvector<T> &rhs) : nn(rhs.nn), v(nn > 0 ? new T[nn] : NULL) {
+NRvector<T>::NRvector(const NRvector<T> &rhs) : nn(rhs.nn), v(nn > 0 ? new T[nn] : nullptr) {
     for (int i = 0; i < nn; i++) v[i] = rhs[i];
 }
 
@@ -150,9 +150,9 @@ NRvector<T> &NRvector<T>::operator=(const NRvector<T> &rhs)
 {
     if (this != &rhs) {
         if (nn != rhs.nn) {
-            if (v != NULL) delete[] (v);
+            if (v != nullptr) delete[] (v);
             nn = rhs.nn;
-            v = nn > 0 ? new T[nn] : NULL;
+            v = nn > 0 ? new T[nn] : nullptr;
         }
         for (int i = 0; i < nn; i++)
             v[i] = rhs[i];
@@ -190,25 +190,25 @@ inline int NRvector<T>::size() const {
 template<class T>
 void NRvector<T>::resize(int newn) {
     if (newn != nn) {
-        if (v != NULL) delete[] (v);
+        if (v != nullptr) delete[] (v);
         nn = newn;
-        v = nn > 0 ? new T[nn] : NULL;
+        v = nn > 0 ? new T[nn] : nullptr;
     }
 }
 
 template<class T>
 void NRvector<T>::assign(int newn, const T &a) {
     if (newn != nn) {
-        if (v != NULL) delete[] (v);
+        if (v != nullptr) delete[] (v);
         nn = newn;
-        v = nn > 0 ? new T[nn] : NULL;
+        v = nn > 0 ? new T[nn] : nullptr;
     }
     for (int i = 0; i < nn; i++) v[i] = a;
 }
 
 template<class T>
 NRvector<T>::~NRvector() {
-    if (v != NULL) delete[] (v);
+    if (v != nullptr) delete[] (v);
 }
 
 // end of NRvector definitions
@@ -243,35 +243,35 @@ public:
 };
 
 template<class T>
-NRmatrix<T>::NRmatrix() : nn(0), mm(0), v(NULL) {}
+NRmatrix<T>::NRmatrix() : nn(0), mm(0), v(nullptr) {}
 
 template<class T>
-NRmatrix<T>::NRmatrix(int n, int m) : nn(n), mm(m), v(n > 0 ? new T *[n] : NULL) {
+NRmatrix<T>::NRmatrix(int n, int m) : nn(n), mm(m), v(n > 0 ? new T *[n] : nullptr) {
     int i, nel = m * n;
-    if (v) v[0] = nel > 0 ? new T[nel] : NULL;
+    if (v) v[0] = nel > 0 ? new T[nel] : nullptr;
     for (i = 1; i < n; i++) v[i] = v[i - 1] + m;
 }
 
 template<class T>
-NRmatrix<T>::NRmatrix(int n, int m, const T &a) : nn(n), mm(m), v(n > 0 ? new T *[n] : NULL) {
+NRmatrix<T>::NRmatrix(int n, int m, const T &a) : nn(n), mm(m), v(n > 0 ? new T *[n] : nullptr) {
     int i, j, nel = m * n;
-    if (v) v[0] = nel > 0 ? new T[nel] : NULL;
+    if (v) v[0] = nel > 0 ? new T[nel] : nullptr;
     for (i = 1; i < n; i++) v[i] = v[i - 1] + m;
     for (i = 0; i < n; i++) for (j = 0; j < m; j++) v[i][j] = a;
 }
 
 template<class T>
-NRmatrix<T>::NRmatrix(int n, int m, const T *a) : nn(n), mm(m), v(n > 0 ? new T *[n] : NULL) {
+NRmatrix<T>::NRmatrix(int n, int m, const T *a) : nn(n), mm(m), v(n > 0 ? new T *[n] : nullptr) {
     int i, j, nel = m * n;
-    if (v) v[0] = nel > 0 ? new T[nel] : NULL;
+    if (v) v[0] = nel > 0 ? new T[nel] : nullptr;
     for (i = 1; i < n; i++) v[i] = v[i - 1] + m;
     for (i = 0; i < n; i++) for (j = 0; j < m; j++) v[i][j] = *a++;
 }
 
 template<class T>
-NRmatrix<T>::NRmatrix(const NRmatrix &rhs) : nn(rhs.nn), mm(rhs.mm), v(nn > 0 ? new T *[nn] : NULL) {
+NRmatrix<T>::NRmatrix(const NRmatrix &rhs) : nn(rhs.nn), mm(rhs.mm), v(nn > 0 ? new T *[nn] : nullptr) {
     int i, j, nel = mm * nn;
-    if (v) v[0] = nel > 0 ? new T[nel] : NULL;
+    if (v) v[0] = nel > 0 ? new T[nel] : nullptr;
     for (i = 1; i < nn; i++) v[i] = v[i - 1] + mm;
     for (i = 0; i < nn; i++) for (j = 0; j < mm; j++) v[i][j] = rhs[i][j];
 }
@@ -285,15 +285,15 @@ NRmatrix<T> &NRmatrix<T>::operator=(const NRmatrix<T> &rhs)
     if (this != &rhs) {
         int i, j, nel;
         if (nn != rhs.nn || mm != rhs.mm) {
-            if (v != NULL) {
+            if (v != nullptr) {
                 delete[] (v[0]);
                 delete[] (v);
             }
             nn = rhs.nn;
             mm = rhs.mm;
-            v = nn > 0 ? new T *[nn] : NULL;
+            v = nn > 0 ? new T *[nn] : nullptr;
             nel = mm * nn;
-            if (v) v[0] = nel > 0 ? new T[nel] : NULL;
+            if (v) v[0] = nel > 0 ? new T[nel] : nullptr;
             for (i = 1; i < nn; i++) v[i] = v[i - 1] + mm;
         }
         for (i = 0; i < nn; i++) for (j = 0; j < mm; j++) v[i][j] = rhs[i][j];
@@ -336,15 +336,15 @@ template<class T>
 void NRmatrix<T>::resize(int newn, int newm) {
     int i, nel;
     if (newn != nn || newm != mm) {
-        if (v != NULL) {
+        if (v != nullptr) {
             delete[] (v[0]);
             delete[] (v);
         }
         nn = newn;
         mm = newm;
-        v = nn > 0 ? new T *[nn] : NULL;
+        v = nn > 0 ? new T *[nn] : nullptr;
         nel = mm * nn;
-        if (v) v[0] = nel > 0 ? new T[nel] : NULL;
+        if (v) v[0] = nel > 0 ? new T[nel] : nullptr;
         for (i = 1; i < nn; i++) v[i] = v[i - 1] + mm;
     }
 }
@@ -353,15 +353,15 @@ template<class T>
 void NRmatrix<T>::assign(int newn, int newm, const T &a) {
     int i, j, nel;
     if (newn != nn || newm != mm) {
-        if (v != NULL) {
+        if (v != nullptr) {
             delete[] (v[0]);
             delete[] (v);
         }
         nn = newn;
         mm = newm;
-        v = nn > 0 ? new T *[nn] : NULL;
+        v = nn > 0 ? new T *[nn] : nullptr;
         nel = mm * nn;
-        if (v) v[0] = nel > 0 ? new T[nel] : NULL;
+        if (v) v[0] = nel > 0 ? new T[nel] : nullptr;
         for (i = 1; i < nn; i++) v[i] = v[i - 1] + mm;
     }
     for (i = 0; i < nn; i++) for (j = 0; j < mm; j++) v[i][j] = a;
@@ -369,7 +369,7 @@ void NRmatrix<T>::assign(int newn, int newm, const T &a) {
 
 template<class T>
 NRmatrix<T>::~NRmatrix() {
-    if (v != NULL) {
+    if (v != nullptr) {
         delete[] (v[0]);
         delete[] (v);
     }
@@ -400,7 +400,7 @@ public:
 };
 
 template<class T>
-NRMat3d<T>::NRMat3d(): nn(0), mm(0), kk(0), v(NULL) {}
+NRMat3d<T>::NRMat3d(): nn(0), mm(0), kk(0), v(nullptr) {}
 
 template<class T>
 NRMat3d<T>::NRMat3d(int n, int m, int k) : nn(n), mm(m), kk(k), v(new T **[n]) {
@@ -443,7 +443,7 @@ inline int NRMat3d<T>::dim3() const {
 
 template<class T>
 NRMat3d<T>::~NRMat3d() {
-    if (v != NULL) {
+    if (v != nullptr) {
         delete[] (v[0][0]);
         delete[] (v[0]);
         delete[] (v);

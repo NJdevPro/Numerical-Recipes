@@ -8,9 +8,33 @@
 using namespace std;
 
 // Driver for routine anneal
+// Type your code here, or load an example.
+#include <algorithm>
+#include <iostream>
+#include <chrono>
+#include <ctime>
+#include <ratio>
 
-int main(void) {
-    const int NCITY = 15;
+
+void clock(void (*func)(void))
+{
+    using namespace std::chrono;
+
+    typedef std::chrono::high_resolution_clock Clock;
+
+    auto t1 = Clock::now();
+    func();
+    auto t2 = Clock::now();
+
+    duration<double> time_span = duration_cast<duration<double>>(t2 - t1);
+
+    std::cout << std::fixed << std::setprecision(5) <<"It took me " <<  time_span.count() << " seconds.";
+    std::cout << std::endl;
+}
+
+void travelling_saleseman()
+{
+    const int NCITY = 30;
     int idum = (-111);
     VecInt iorder(NCITY);
     VecDoub x(NCITY), y(NCITY);
@@ -34,5 +58,9 @@ int main(void) {
         cout << setw(4) << ii << setw(11) << x[ii];
         cout << setw(11) << y[ii] << endl;
     }
+}
+
+int main(void) {
+    clock(&travelling_saleseman);
     return 0;
 }

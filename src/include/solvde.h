@@ -23,7 +23,7 @@ struct Solvde {
            VecDoub_I &scalvv, VecInt_I &indexvv, const Int nbb,
            MatDoub_IO &yy, Difeq &difeqq);
 
-    void pinvs(const Int ie1, const Int ie2, const Int je1, const Int jsf,
+    void pinvs(const size_t ie1, size_t ie2, const size_t je1, const size_t jsf,
                const Int jc1, const Int k);
 
     void bksub(const Int ne, const Int nb, const Int jf, const Int k1,
@@ -93,28 +93,29 @@ Solvde::Solvde(const Int itmaxx, const Doub convv, const Doub slowcc,
     throw("Too many iterations in solvde");
 }
 
-void Solvde::pinvs(const Int ie1, const Int ie2, const Int je1, const Int jsf,
+void Solvde::pinvs(const size_t ie1, size_t ie2, const size_t je1, const size_t jsf,
                    const Int jc1, const Int k) {
-    Int jpiv, jp, je2, jcoff, j, irow, ipiv, id, icoff, i;
+    Int jpiv, jp, jcoff, irow, ipiv, icoff;
+    size_t je2;
     Doub pivinv, piv, big;
-    const Int iesize = ie2 - ie1;
+    const size_t iesize = ie2 - ie1;
     VecInt indxr(iesize);
     VecDoub pscl(iesize);
     je2 = je1 + iesize;
-    for (i = ie1; i < ie2; i++) {
+    for (size_t i = ie1; i < ie2; i++) {
         big = 0.0;
-        for (j = je1; j < je2; j++)
+        for (size_t j = je1; j < je2; j++)
             if (abs(s[i][j]) > big) big = abs(s[i][j]);
         if (big == 0.0) throw("Singular matrix - row all 0, in pinvs");
         pscl[i - ie1] = 1.0 / big;
         indxr[i - ie1] = 0;
     }
-    for (id = 0; id < iesize; id++) {
+    for (size_t id = 0; id < iesize; id++) {
         piv = 0.0;
-        for (i = ie1; i < ie2; i++) {
+        for (size_t i = ie1; i < ie2; i++) {
             if (indxr[i - ie1] == 0) {
                 big = 0.0;
-                for (j = je1; j < je2; j++) {
+                for (size_t j = je1; j < je2; j++) {
                     if (abs(s[i][j]) > big) {
                         jp = j;
                         big = abs(s[i][j]);
@@ -130,13 +131,13 @@ void Solvde::pinvs(const Int ie1, const Int ie2, const Int je1, const Int jsf,
         if (s[ipiv][jpiv] == 0.0) throw("Singular matrix in routine pinvs");
         indxr[ipiv - ie1] = jpiv + 1;
         pivinv = 1.0 / s[ipiv][jpiv];
-        for (j = je1; j <= jsf; j++) s[ipiv][j] *= pivinv;
+        for (size_t j = je1; j <= jsf; j++) s[ipiv][j] *= pivinv;
         s[ipiv][jpiv] = 1.0;
-        for (i = ie1; i < ie2; i++) {
+        for (size_t i = ie1; i < ie2; i++) {
             if (indxr[i - ie1] != jpiv + 1) {
                 if (s[i][jpiv] != 0.0) {
                     Doub dum = s[i][jpiv];
-                    for (j = je1; j <= jsf; j++)
+                    for (size_t j = je1; j <= jsf; j++)
                         s[i][j] -= dum * s[ipiv][j];
                     s[i][jpiv] = 0.0;
                 }
@@ -145,9 +146,9 @@ void Solvde::pinvs(const Int ie1, const Int ie2, const Int je1, const Int jsf,
     }
     jcoff = jc1 - je2;
     icoff = ie1 - je1;
-    for (i = ie1; i < ie2; i++) {
+    for (size_t i = ie1; i < ie2; i++) {
         irow = indxr[i - ie1] + icoff;
-        for (j = je2; j <= jsf; j++) c[irow - 1][j + jcoff][k] = s[i][j];
+        for (size_t j = je2; j <= jsf; j++) c[irow - 1][j + jcoff][k] = s[i][j];
     }
 }
 

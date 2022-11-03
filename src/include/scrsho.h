@@ -5,7 +5,7 @@ template<class T>
 void scrsho(T &fx) {
     const Int RES = 500;
     const Doub XLL = 75., XUR = 525., YLL = 250., YUR = 700.;
-    char *plotfilename = tmpnam(NULL);
+    char *plotfilename = tmpnam(nullptr);
     VecDoub xx(RES), yy(RES);
     Doub x1, x2;
     Int i;

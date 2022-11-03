@@ -1,7 +1,7 @@
 #pragma once
 #include <nr3.h>
 
-void eigsrt(VecDoub_IO &d, MatDoub_IO *v = NULL) {
+void eigsrt(VecDoub_IO &d, MatDoub_IO *v = nullptr) {
     Int k;
     Int n = d.size();
     for (Int i = 0; i < n - 1; i++) {
@@ -11,7 +11,7 @@ void eigsrt(VecDoub_IO &d, MatDoub_IO *v = NULL) {
         if (k != i) {
             d[k] = d[i];
             d[i] = p;
-            if (v != NULL)
+            if (v != nullptr)
                 for (Int j = 0; j < n; j++) {
                     p = (*v)[j][i];
                     (*v)[j][i] = (*v)[j][k];

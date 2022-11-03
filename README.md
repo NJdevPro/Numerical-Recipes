@@ -17,17 +17,20 @@ https://github.com/ESMG/PyCNAL_legacy/tree/master/bathy_smoother/external/lp_sol
 
 No attempt has been made to make the code more modern or to use C++11 features.
 The reason is because it makes it easier to compare the code with the original 
-and the text in the book.
+and the text in the book. I have passed the code through an indenter to make it easier
+on the eye.
 Barely any attempt has been made to clean compiler warnings nor correct mistakes
 found by static analysis,  so the algorithms are pretty much verbatim.
 They should compile on any modern C++ compiler with C++03 support.
 
-Use at your own risks !
+**Use at your own risks !**
 
 The code is not mine, and I am not responsible for any damage it may cause.
-Most of it was written in the 80s, has not really been updated since, and is not 
-meant to be used in production. The code shows its age and its Fortran origins.
-I would not recommend using these routines for anything serious, but NR is a good 
+Most of it was written in the 80s, has not really been updated since. 
+The code shows its age and its Fortran and C origins and would fail modern code quality
+standards. The compiler will spit out a number of warnings and I only bothered to fix a
+few of them.
+I would not recommend using these routines without serious testing, but NR is a good 
 introduction to numerical algorithms and a great starting point for educative purpose
 (buy the book !).
 For production work, I would recommend looking at modern libraries such as MKL, Eigen, 
@@ -35,4 +38,7 @@ GNU Scientific Library, Ceres Solver, FFTW, etc. These are often much more effic
 reliable, written in more idiomatic C++, better tested and more actively maintained.
 
 Finally, I could not find a copy of the example programs that were shipped along the 
-book of examples. If you have a copy, it would be great to add them to this repository.
+book of examples. I only shipped a few examples as a proof that the code does indeed
+compile and works.
+You will find many other examples in C here:
+https://www.astro.umd.edu/~ricotti/NEWWEB/teaching/ASTR415/InClassExamples/NR3/legacy/nr2/CPP_211/progs.htm

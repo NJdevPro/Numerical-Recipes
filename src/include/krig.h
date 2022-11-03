@@ -11,7 +11,7 @@ struct Krig {
     MatDoub v;
     LUdcmp *vi;
 
-    Krig(MatDoub_I &xx, VecDoub_I &yy, T &vargram, const Doub *err = NULL)
+    Krig(MatDoub_I &xx, VecDoub_I &yy, T &vargram, const Doub *err = nullptr)
             : x(xx), vgram(vargram), npt(xx.nrows()), ndim(xx.ncols()), dstar(npt + 1),
               vstar(npt + 1), v(npt + 1, npt + 1), y(npt + 1), yvi(npt + 1) {
         Int i, j;

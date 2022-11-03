@@ -70,7 +70,7 @@ struct PSpage {
     void close() {
         fprintf(PLT, "showpage\n");
         fclose(PLT);
-        PLT = NULL;
+        PLT = nullptr;
     }
 
     void display() {

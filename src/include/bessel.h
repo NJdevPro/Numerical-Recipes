@@ -231,7 +231,7 @@ Doub Bessik::in(const Int n, const Doub x) {
     const Doub ACC = 200.0;
     const Int IEXP = std::numeric_limits<Doub>::max_exponent / 2;
     Int j, k;
-    Doub bi, bj, bim, bip, tox, ans;
+    Doub bi, bim, bip, tox, ans;
     if (n == 0) return i0(x);
     if (n == 1) return i1(x);
     if (x * x <= 8.0 * std::numeric_limits<Doub>::min()) return 0.0;

@@ -60,44 +60,44 @@ void NRlusol::factorize() {
 
 VecDoub NRlusol::solve(VecDoub &rhs) {
     VecDoub x(rhs.size()), y = rhs;
-    LU6SOL(LUSOL, LUSOL_SOLVE_Aw_v, &y[0], &x[0], NULL, &inform);
+    LU6SOL(LUSOL, LUSOL_SOLVE_Aw_v, &y[0], &x[0], nullptr, &inform);
     return x;
 }
 
 VecDoub NRlusol::solvet(VecDoub &rhs) {
     VecDoub x(rhs.size()), y = rhs;
-    LU6SOL(LUSOL, LUSOL_SOLVE_Atv_w, &x[0], &y[0], NULL, &inform);
+    LU6SOL(LUSOL, LUSOL_SOLVE_Atv_w, &x[0], &y[0], nullptr, &inform);
     return x;
 }
 
 VecDoub NRlusol::linv(VecDoub &rhs) {
     VecDoub x = rhs;
-    LU6SOL(LUSOL, LUSOL_SOLVE_Lv_v, &x[0], &x[0], NULL, &inform);
+    LU6SOL(LUSOL, LUSOL_SOLVE_Lv_v, &x[0], &x[0], nullptr, &inform);
     return x;
 }
 
 VecDoub NRlusol::uinv(VecDoub &rhs) {
     VecDoub x(rhs.size());
-    LU6SOL(LUSOL, LUSOL_SOLVE_Uw_v, &rhs[0], &x[0], NULL, &inform);
+    LU6SOL(LUSOL, LUSOL_SOLVE_Uw_v, &rhs[0], &x[0], nullptr, &inform);
     return x;
 }
 
 VecDoub NRlusol::linvt(VecDoub &rhs) {
     VecDoub x = rhs;
-    LU6SOL(LUSOL, LUSOL_SOLVE_Ltv_v, &x[0], &x[0], NULL, &inform);
+    LU6SOL(LUSOL, LUSOL_SOLVE_Ltv_v, &x[0], &x[0], nullptr, &inform);
     return x;
 }
 
 VecDoub NRlusol::uinvt(VecDoub &rhs) {
     VecDoub x(rhs.size()), y = rhs;
-    LU6SOL(LUSOL, LUSOL_SOLVE_Utv_w, &x[0], &y[0], NULL, &inform);
+    LU6SOL(LUSOL, LUSOL_SOLVE_Utv_w, &x[0], &y[0], nullptr, &inform);
     return x;
 }
 
 void NRlusol::update(VecDoub &x, Int i, Int &ok) {
     Doub DIAG, VNORM;
     LU8RPC(LUSOL, LUSOL_UPDATE_OLDNONEMPTY, LUSOL_UPDATE_USEPREPARED,
-           i, &x[0], NULL, &ok, &DIAG, &VNORM);
+           i, &x[0], nullptr, &ok, &DIAG, &VNORM);
 }
 
 void NRlusol::clear() {
