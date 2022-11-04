@@ -6,12 +6,11 @@
 
 using namespace std;
 
-MatDoub prod(MatDoub &xl, MatDoub &xu, VecInt &jndx) {
+MatDoub prod(MatDoub &xl, MatDoub &xu) {
     if (xl.nrows() != xu.ncols()) throw("Bad matrix sizes");
     size_t n = xl.nrows();
     MatDoub x(n, n);
     for (size_t k = 0; k < n; k++) {
-        jndx[k] = k;
         for (size_t l = 0; l < n; l++) {
             x[k][l] = 0.0;
             for (size_t j = 0; j < n; j++)
@@ -21,12 +20,10 @@ MatDoub prod(MatDoub &xl, MatDoub &xu, VecInt &jndx) {
     return x;
 }
 
-void print_M(MatDoub& x)
-{
+void print_M(MatDoub &x) {
     size_t n = x.nrows();
     for (size_t k = 0; k < n; k++) {
-        for (size_t l = 0; l < n; l++)
-            cout << setw(12) << x[k][l];
+        for (size_t l = 0; l < n; l++) cout << setw(12) << x[k][l];
         cout << endl;
     }
 }
@@ -43,7 +40,6 @@ int main(void) {
         getline(fp, txt);
         fp >> n >> m;   // matrix size
         getline(fp, txt);
-        VecInt indx(n, 0), jndx(n, 0); // permutation vectors
         MatDoub a(n, n), // original matrix
         xl(n, n),    // lower triangular matrix
         xu(n, n),    // upper triangular matrix
@@ -66,13 +62,24 @@ int main(void) {
         ludcmp.decompose(xl, xu);
         // Compute product of lower and upper matrices for
         // comparison with original matrix
-        x = prod(xl, xu, jndx);
+        x = prod(xl, xu);
         cout << endl << "product of lower and upper matrices (rows unscrambled):" << endl;
-        print_M(x);
+        VecInt jndx(n); // permutation vector
+        for (size_t k = 0; k < n; k++) jndx[k] = k;
+        for (size_t k = 0; k < n; k++) {
+            SWAP(jndx[ludcmp.indx[k]], jndx[k]);
+        }
+        for (size_t k = 0; k < n; k++)
+            for (size_t j = 0; j < n; j++)
+                if (jndx[j] == k) {
+                    for (size_t l = 0; l < n; l++) cout << setw(12) << x[j][l];
+                    cout << endl;
+                }
         cout << endl << "lower matrix of the decomposition:" << endl;
         print_M(xl);
         cout << endl << "upper matrix of the decomposition:" << endl;
         print_M(xu);
+        cout << "det = " << ludcmp.det() << endl;
         cout << endl << "***********************************" << endl;
         cout << "NEXT PROBLEM" << endl;
     }

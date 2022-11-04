@@ -3,9 +3,9 @@
 
 struct LUdcmp {
     size_t n;
-    MatDoub lu;
-    VecInt indx;
-    Doub d;
+    Doub d = 0.0;   // determinant
+    MatDoub lu;     // lower upper matrix
+    VecInt indx;    // permutation vector
 
     LUdcmp(MatDoub_I &a);
 
@@ -24,7 +24,7 @@ struct LUdcmp {
     MatDoub_I &aref;
 };
 
-// BUGGY !!
+
 LUdcmp::LUdcmp(MatDoub_I &a) : n(a.nrows()), lu(a), aref(a), indx(n) {
     const Doub TINY = 1.0e-40;
     Doub big, temp;
@@ -84,23 +84,23 @@ void LUdcmp::decompose(MatDoub &lower, MatDoub &upper) {
 }
 
 void LUdcmp::solve(VecDoub_I &b, VecDoub_O &x) {
-    size_t i, ii = 0, ip, j;
-    Doub sum;
+    size_t ii = 0, ip;
+    Doub sum = 0;
     if (b.size() != n || x.size() != n) throw("LUdcmp::solve bad sizes");
-    for (i = 0; i < n; i++) x[i] = b[i];
-    for (i = 0; i < n; i++) {
+    for (size_t i = 0; i < n; i++) x[i] = b[i];
+    for (size_t i = 0; i < n; i++) {
         ip = indx[i];
         sum = x[ip];
         x[ip] = x[i];
         if (ii != 0)
-            for (j = ii - 1; j < i; j++) sum -= lu[i][j] * x[j];
+            for (size_t j = ii - 1; j < i; j++) sum -= lu[i][j] * x[j];
         else if (sum != 0.0)
             ii = i + 1;
         x[i] = sum;
     }
-    for (i = n - 1; i >= 0; i--) {
+    for (size_t i = n - 1; i >= 0; i--) {
         sum = x[i];
-        for (j = i + 1; j < n; j++) sum -= lu[i][j] * x[j];
+        for (size_t j = i + 1; j < n; j++) sum -= lu[i][j] * x[j];
         x[i] = sum / lu[i][i];
     }
 }
@@ -117,7 +117,7 @@ void LUdcmp::solve(MatDoub_I &b, MatDoub_O &x) {
 }
 
 void LUdcmp::inverse(MatDoub_O &ainv) {
-    ainv.resize(n, n);
+     ainv.resize(n, n);
     for (size_t i = 0; i < n; i++) {
         for (size_t j = 0; j < n; j++) ainv[i][j] = 0.;
         ainv[i][i] = 1.;
