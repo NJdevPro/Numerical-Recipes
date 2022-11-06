@@ -10,7 +10,6 @@
 #include "stepperbs.h"
 #include "rk4.h"
 #include "bessel.h"
-#include "besselfrac.h"
 
 // Van der Pol oscillator
 struct rhs_van {
@@ -86,30 +85,15 @@ void rk4int() {
     }
 }
 
-void clock(std::function<void(void)> func)
-{
-    using namespace std::chrono;
-
-    typedef std::chrono::high_resolution_clock Clock;
-
-    auto t1 = Clock::now();
-    func();
-    auto t2 = Clock::now();
-
-    duration<double> time_span = duration_cast<duration<double>>(t2 - t1);
-
-    std::cout << std::fixed << std::setprecision(5) <<"It took me " <<  time_span.count() << " seconds.";
-    std::cout << std::endl;
-}
 
 int main(int argc, char **argv) {
 
     std::cout << std::setprecision(10);
 
-    clock(odeint<StepperDopr5<rhs_van>>);
-    clock(odeint<StepperDopr853<rhs_van>>);
-    clock(odeint<StepperBS<rhs_van>>);
+    odeint<StepperDopr5<rhs_van>>();
+    odeint<StepperDopr853<rhs_van>>();
+    odeint<StepperBS<rhs_van>>();
 
-    clock(rk4int);
+    rk4int();
 }
 
