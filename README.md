@@ -33,9 +33,10 @@ few of them.
 I would not recommend using these routines without serious testing, but NR is a good 
 introduction to numerical algorithms and a great starting point for educative purpose
 (buy the book !).
-For production work, I would recommend looking at modern libraries such as MKL, Eigen, 
-GNU Scientific Library, Ceres Solver, FFTW, etc. These are often much more efficient and
-reliable, written in more idiomatic C++, better tested and more actively maintained.
+For production work, I would recommend looking at modern libraries such as LAPACK, Intel 
+MKL, Eigen, GNU Scientific Library, Ceres Solver, FFTW, etc. These are often much more 
+efficient and reliable, written in more idiomatic C++, better tested and more actively 
+maintained.
 
 Finally, I could not find a copy of the example programs that were shipped along the 
 book of examples. I only shipped a few examples as a proof that the code does indeed

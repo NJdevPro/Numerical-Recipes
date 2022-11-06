@@ -21,7 +21,7 @@ struct LUdcmp {
 
     void mprove(VecDoub_I &b, VecDoub_IO &x);
 
-    MatDoub_I &aref;
+    MatDoub_I &aref;    // ref to the original matrix
 };
 
 
@@ -29,7 +29,7 @@ LUdcmp::LUdcmp(MatDoub_I &a) : n(a.nrows()), lu(a), aref(a), indx(n) {
     const Doub TINY = 1.0e-40;
     Doub big, temp;
     VecDoub vv(n);  // pivot coeffs for each row
-    d = 1.0;
+    d = 1.0;        // sign
     // find the pivot for each row
     for (size_t i = 0; i < n; i++) {
         big = 0.0;
@@ -98,7 +98,7 @@ void LUdcmp::solve(VecDoub_I &b, VecDoub_O &x) {
             ii = i + 1;
         x[i] = sum;
     }
-    for (size_t i = n - 1; i >= 0; i--) {
+    for (int i = n - 1; i >= 0; --i) {  // i must be a signed integer
         sum = x[i];
         for (size_t j = i + 1; j < n; j++) sum -= lu[i][j] * x[j];
         x[i] = sum / lu[i][i];
