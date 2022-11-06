@@ -44,6 +44,8 @@ Solvde::Solvde(const Int itmaxx, const Doub convv, const Doub slowcc,
     Int k1 = 0, k2 = m;
     Int j1 = 0, j2 = nb, j3 = nb, j4 = ne, j5 = j4 + j1, j6 = j4 + j2, j7 = j4 + j3, j8 = j4 + j4, j9 = j8 + j1;
     Int ic1 = 0, ic2 = ne - nb, ic3 = ic2, ic4 = ne, jc1 = 0, jcf = ic3;
+    std::cout << std::setw(8) << "Iter.";
+    std::cout << std::setw(10) << "Error" << std::setw(10) << "FAC" << std::endl;
     for (Int it = 0; it < itmax; it++) {
         k = k1;
         difeq.smatrix(k, k1, k2, j9, ic3, ic4, indexv, s, y);
@@ -83,8 +85,6 @@ Solvde::Solvde(const Int itmaxx, const Doub convv, const Doub slowcc,
             for (k = k1; k < k2; k++)
                 y[j][k] -= fac * c[jv][0][k];
         }
-        std::cout << std::setw(8) << "Iter.";
-        std::cout << std::setw(10) << "Error" << std::setw(10) << "FAC" << std::endl;
         std::cout << std::setw(6) << it;
         std::cout << std::fixed << std::setprecision(6) << std::setw(13) << err;
         std::cout << std::setw(12) << fac << std::endl;
