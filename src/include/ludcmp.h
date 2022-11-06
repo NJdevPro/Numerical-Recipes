@@ -98,7 +98,7 @@ void LUdcmp::solve(VecDoub_I &b, VecDoub_O &x) {
             ii = i + 1;
         x[i] = sum;
     }
-    for (int i = n - 1; i >= 0; --i) {  // i must be a signed integer
+    for (size_t i = n; i-- > 0;) {
         sum = x[i];
         for (size_t j = i + 1; j < n; j++) sum -= lu[i][j] * x[j];
         x[i] = sum / lu[i][i];
