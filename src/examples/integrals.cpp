@@ -13,7 +13,7 @@ struct Functor {
     double operator()(const double x){ return (x * x) * (x * x - 2.0) * sin(x); }
 } fn;
 
-// Integral of test function
+// Integral of examples function
 double fint(const double x) {
     return 4.0 * x * (x * x - 7.0) * sin(x) - (pow(x, 4.0) - 14.0 * (x * x) + 28.0) * cos(x);
 }

@@ -475,7 +475,7 @@ typedef std::complex<double> Complex; // default complex type
 typedef bool Bool;
 
 // NaN: uncomment one of the following 3 methods of defining a global NaN
-// you can test by verifying that (NaN != NaN) is true
+// you can examples by verifying that (NaN != NaN) is true
 
 static const Doub NaN = std::numeric_limits<Doub>::quiet_NaN();
 

@@ -34,7 +34,7 @@ void print_V(const NRvector<double> x) {
 }
 
 int main(void) {
-    ifstream fp("/home/njanin/CLionProjects/Numerical-Recipes/src/test/matri1.dat");
+    ifstream fp("/home/njanin/CLionProjects/Numerical-Recipes/src/examples/matri1.dat");
     if (fp.fail()) throw ("Data file matrx1.dat not found");
     cout << fixed << setprecision(6);
     string txt;

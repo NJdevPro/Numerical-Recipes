@@ -369,7 +369,7 @@ void amd_l_info(double Info[]);
 /* ========================================================================== */
 
 /* AMD Version 1.2 and later include the following definitions.
- * As an example, to test if the version you are using is 1.2 or later:
+ * As an example, to examples if the version you are using is 1.2 or later:
  *
  * #ifdef AMD_VERSION
  *       if (AMD_VERSION >= AMD_VERSION_CODE (1,2)) ...
