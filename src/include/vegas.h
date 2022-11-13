@@ -1,6 +1,24 @@
 #pragma once
 #include <nr3.h>
+#include <ran.h>
+#include <rebin.h>
 
+/*
+ * Performs Monte Carlo integration of a user-supplied ndim-dimensional function fxn over a
+rectangular volume specified by regn[0..2*ndim-1], a vector consisting of ndim “lower left”
+coordinates of the region followed by ndim “upper right” coordinates. The integration consists
+of itmx iterations, each with approximately ncall calls to the function. After each iteration
+the grid is refined; more than 5 or 10 iterations are rarely useful. The input flag init signals
+whether this call is a new start or a subsequent call for additional iterations (see comments in the
+code). The input flag nprn (normally 0) controls the amount of diagnostic output. Returned
+answers are tgral (the best estimate of the integral), sd (its standard deviation), and chi2a
+(2 per degree of freedom, an indicator of whether consistent results are being obtained). See
+text for further details.
+The input flag init can be used to advantage. One might have a call with init=0,
+ncall=1000, itmx=5 immediately followed by a call with init=1, ncall=100000, itmx=1.
+The effect would be to develop a sampling grid over five iterations of a small number of
+samples, then to do a single high accuracy integration on the optimized grid.
+ */
 void vegas(VecDoub_I &regn, Doub fxn(VecDoub_I &, const Doub), const Int init,
            const Int ncall, const Int itmx, const Int nprn, Doub &tgral, Doub &sd,
            Doub &chi2a) {

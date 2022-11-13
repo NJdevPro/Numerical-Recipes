@@ -51,7 +51,7 @@ Int main(void) {
         cout << endl << " m = " << setw(3) << mm;
         cout << "  n = " << setw(3) << n << "  c**2 = ";
         cout << fixed << setprecision(3) << setw(7) << c2[j];
-        cout << " lamda = " << setprecision(6) << (y[2][0] + mm * (mm + 1));
+        cout << " lambda = " << setprecision(6) << (y[2][0] + mm * (mm + 1));
         cout << endl;
     }
     return 0;

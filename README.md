@@ -26,20 +26,19 @@ They should compile on any modern C++ compiler with C++03 support.
 **Use at your own risks !**
 
 The code is not mine, and I am not responsible for any damage it may cause.
-Most of it was written in the 80s, has not really been updated since. 
+Most of it was written in the 80s and 90s. 
 The code shows its age and its Fortran and C origins and would fail modern code quality
 standards. The compiler will spit out a number of warnings and I only bothered to fix a
 few of them.
 I would not recommend using these routines without serious testing, but NR is a good 
 introduction to numerical algorithms and a great starting point for educative purpose
-(buy the book !).
+(buy the book, it's totally worth it !).
 For production work, I would recommend looking at modern libraries such as LAPACK, Intel 
 MKL, Eigen, GNU Scientific Library, Ceres Solver, FFTW, etc. These are often much more 
 efficient and reliable, written in more idiomatic C++, better tested and more actively 
 maintained.
 
-Finally, I could not find a copy of the example programs that were shipped along the 
-book of examples. I only shipped a few examples as a proof that the code does indeed
-compile and works.
+Finally, thereis only a few examples as a proof that the code does indeed
+compile and run.
 You will find many other examples in C here:
 https://www.astro.umd.edu/~ricotti/NEWWEB/teaching/ASTR415/InClassExamples/NR3/legacy/nr2/CPP_211/progs.htm
