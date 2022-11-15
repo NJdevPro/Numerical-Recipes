@@ -19,6 +19,7 @@ add_executable(odeint src/examples/odeint.cpp)
 add_executable(sfroid src/examples/sfroid.cpp)
 add_executable(vegas src/examples/vegas.cpp)
 
+enable_testing()
 add_test(NAME anneal_example COMMAND anneal)
 add_test(NAME bessel_example COMMAND bessel)
 add_test(NAME integrals_example COMMAND integrals)
