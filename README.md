@@ -46,6 +46,7 @@ You will find many other examples in C here:
 https://www.astro.umd.edu/~ricotti/NEWWEB/teaching/ASTR415/InClassExamples/NR3/legacy/nr2/CPP_211/progs.htm
 
 == How to build ==
+
 You will need cmake (adjust to your version in the first line of the CMakeLists.txt file, if necessary). 
 Then go to the directory containing the CMakeLists.txt file (aka root of the project) and type:
 cmake .
