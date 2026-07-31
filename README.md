@@ -1,7 +1,7 @@
 # Numerical-Recipes
 All header files from numerical recipes in C++. 3rd Edition. 
 Note that all these files are under copyright by their authors.
-Check [http://numerical.recipes/licenses/](https://numerical.recipes/licenseinfo.html) for more information.
+Check [http://numerical.recipes/licenseinfo.html](https://numerical.recipes/licenseinfo.html) for more information.
 
 These files have been modified to actually compile out of the box (under Linux), 
 unlike the many copies of these routines that can be found on Github but fail
